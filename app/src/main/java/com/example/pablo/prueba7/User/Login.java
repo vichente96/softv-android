@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.pablo.prueba7.DeepCons.DeepConsModel;
+import com.example.pablo.prueba7.DeepCons.RequestDeepCons;
 import com.example.pablo.prueba7.Error;
 import com.example.pablo.prueba7.Inicio;
 import com.example.pablo.prueba7.ListOrd.RequestListOrd;
@@ -39,6 +41,7 @@ public class Login extends AppCompatActivity {
     public static String cvl_usuario;
     UserController userController = new UserController();
     RequestListOrd requestListOrd = new RequestListOrd();
+
     public final static String CHANNEL_ID = "NOTIFICACION";
     public final static int NOTIFICACION_ID = 0;
     public static TextView clave;
@@ -78,7 +81,6 @@ public class Login extends AppCompatActivity {
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
                 userController.getReviews();
                 if (UserController.b=true){
-                    userController.getReviews();
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                   Intent intento = new Intent(Login.this, Inicio.class);
                   startActivity(intento);

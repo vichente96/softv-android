@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import com.example.pablo.prueba7.DeepCons.RequestDeepCons;
 import com.example.pablo.prueba7.OrdQue.RequestOrdSer;
 import com.example.pablo.prueba7.ProximoTrabajo.RequestProxCita;
 
@@ -25,6 +26,7 @@ public class Orden extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     RequestProxCita requestProxCita = new RequestProxCita();
     RequestOrdSer requestOrdSer = new RequestOrdSer();
+    RequestDeepCons requestDeepCons = new RequestDeepCons();
     Button orden1, confi;
 
 
@@ -48,6 +50,7 @@ public class Orden extends AppCompatActivity
 
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
+                requestDeepCons.getDeepCons();
 
             }
         });

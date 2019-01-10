@@ -87,6 +87,7 @@ public class RequestOrdSer extends AppCompatActivity {
                   Inicio.OE =dat.get(0).getTotal();
                     Inicio.OP=dat.get(1).getTotal();
                     Inicio.OV=dat.get(2).getTotal();
+                    Inicio.Grafica();
                 }
 
             }

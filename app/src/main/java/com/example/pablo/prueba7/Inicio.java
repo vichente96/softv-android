@@ -51,7 +51,7 @@ public class Inicio extends AppCompatActivity
         trabajo= (TextView)findViewById(R.id.proximotrabajo);
         direccion = (TextView)findViewById(R.id.direccion);
         setSupportActionBar(toolbar);
-        Grafica();
+
         Error.Errores(this);
 
 

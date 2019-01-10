@@ -6,7 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 
-
+import com.example.pablo.prueba7.DeepCons.RequestDeepCons;
 import com.example.pablo.prueba7.Request.RequestTecnico;
 import com.example.pablo.prueba7.sampledata.RestApiAdapter;
 import com.example.pablo.prueba7.sampledata.Service;
@@ -24,6 +24,7 @@ import retrofit2.Response;
 public class UserController extends AppCompatActivity{
     public static boolean b;
 RequestTecnico requestTecnico= new  RequestTecnico();
+
 
 
     public void getReviews() {
@@ -53,6 +54,7 @@ RequestTecnico requestTecnico= new  RequestTecnico();
 
                     b = true;
                     requestTecnico.getClv_tecnico();
+
 
 
                 }

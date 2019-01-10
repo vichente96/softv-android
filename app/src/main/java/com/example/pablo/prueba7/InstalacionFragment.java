@@ -42,6 +42,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     private View contenedorParticular;
     private View contenedorCorporativo;
     TextView coordenadas, direccion;
+    public static TextView Obs;
 
     RadioButton btn1, bt2;
 
@@ -55,6 +56,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_hora, container, false);
+        Obs = view.findViewById(R.id.obs);
 
         //////////// acciones de botones de hora y fecha//////
         selectDate = view.findViewById(R.id.ejecureal);

@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     ScrollView hzScrollView;
     Button info;
     RelativeLayout layoutAnimado;
+    public static TextView NombreTec, Contrato, Status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         info=(Button)findViewById(R.id.info);
         layoutAnimado = (RelativeLayout) findViewById(R.id.animado);
         hzScrollView=(ScrollView)findViewById(R.id.scv);
+        NombreTec = (TextView)findViewById(R.id.tecnico);
+        Contrato = (TextView)findViewById(R.id.contrato);
+        Status = (TextView)findViewById(R.id.status);
 
 //* Boton de informacion
         info.setOnClickListener(new View.OnClickListener() {
