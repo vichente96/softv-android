@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asignacion de Aparatos"
+        android:layout_marginStart="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Aparato:"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="90dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aparato:"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="30dp" />
+
+    <Spinner
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="133dp"
+        android:id="@+id/aparato"
+        android:layout_marginLeft="220dp" />
+
+
+    <Spinner
+        android:layout_width="120dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="95dp"
+        android:id="@+id/tipo_aparato"
+        android:layout_marginLeft="220dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="35dp"
+        android:background="@android:drawable/ic_search_category_default"
+        android:id="@+id/escanear"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regresar"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/regresar"
+        android:layout_marginLeft="250dp" />
+
+
+    <TextView
+        android:id="@+id/codigo"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="45dp"
+        android:visibility="invisible"
+        android:layout_marginLeft="110dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Servicios a los que se le instala el aparato:"
+        android:layout_marginTop="170dp"
+        android:textSize="18dp"
+        android:layout_marginStart="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="270dp"
+        android:id="@+id/agregar"
+        android:layout_marginLeft="270dp" />
+
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="200dp"
+        >
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="380dp"
+        android:layout_height="160dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="350dp"
+        android:layout_alignParentLeft="true">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

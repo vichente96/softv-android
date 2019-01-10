@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"></android.support.v4.view.ViewPager>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="130dp"
+                android:text="Tecnico:" />
+
+            <TextView
+                android:id="@+id/tecnico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="190dp"
+                android:text="Juan Santillan" />
+
+            <Button
+                android:id="@+id/info"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="15dp"
+                android:text="Datos Cliente"
+                android:textSize="6dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="25dp"
+                android:text="Contrato:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/direccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="165dp"
+                android:layout_marginTop="25dp"
+                android:hint="456-453" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="25dp"
+                android:text="Status:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="300dp"
+                android:layout_marginTop="25dp"
+                android:hint="Ejecutada" />
+
+
+        </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="gone"
+        android:id="@+id/scv"
+        >
+
+        <RelativeLayout
+            android:id="@+id/animado"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:background="#c0f2f1"
+            android:visibility="gone"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="400dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="161dp"
+                android:text="Informacion del Usuario"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="97dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="52dp"
+                android:text="Empresa:"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="207dp"
+                android:layout_marginTop="60dp"
+                android:hint="TLAYACAPAN"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="107dp"
+                android:text="Nombre:"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="100dp"
+                android:hint="MARIA EMMA"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="149dp"
+                android:text="Direccion:"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="129dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="205dp"
+                android:layout_marginTop="148dp"
+                android:text="xxxxxxxxxxx"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="192dp"
+                android:text="Servicions Asignados"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="238dp"
+                android:text="Servicios de Servicio de Tv por Cable\n
+Paquete : SERVICIOS DE TV BASICO-BASI2\n
+* Status Actual : Desconectado : Oct 2018\n"
+                android:textSize="20dp" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

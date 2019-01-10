@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InstalacionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:id="@+id/rb"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="89dp">
+
+        <RadioGroup
+            android:id="@+id/grupo_dias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+
+                android:id="@+id/ejutada"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="80dp"
+                android:clickable="false"
+                android:duplicateParentState="false"
+                android:text="Visita"
+                android:visibility="visible" />
+
+            <RadioButton
+                android:id="@+id/visitada"
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="Ejecutada"
+                android:visibility="visible" />
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="120dp"
+        android:verticalScrollbarPosition="defaultPosition"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true">
+
+
+            <RelativeLayout
+                android:id="@+id/RE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="0dp"
+                tools:ignore="NotSibling">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="18dp"
+                    android:text="Ejecucion"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/ejecureal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:focusable="false"
+                    android:hint="_/_/_"
+                    android:textSize="20sp" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/RV"
+                android:layout_width="388dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RE">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Visita 1"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="73dp"
+                    android:text="Visita 2"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/visita1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:focusable="false"
+                    android:hint="_/_/_"
+                    android:textSize="20dp" />
+
+
+                <EditText
+                    android:id="@+id/visita2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/visita1"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:focusable="false"
+                    android:hint="_/_/_"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="376dp"
+                android:layout_height="105dp"
+                android:layout_below="@+id/RV"
+                android:layout_alignParentStart="true">
+
+                <TextView
+                    android:id="@+id/horabi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="13dp"
+                    android:text="Hora inicio"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/horabf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="Hora fin"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/horaf"
+                    android:layout_width="142dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginBottom="4dp"
+                    android:focusable="false"
+                    android:hint="00:00"
+                    android:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/horai"
+                    android:layout_width="144dp"
+                    android:layout_height="59dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="203dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="54dp"
+                    android:focusable="false"
+                    android:hint="00:00"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="333dp"
+                android:text="Tecnico Secundario"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/tecnicosec"
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="249dp"
+                android:layout_marginTop="337dp"
+                android:layout_marginEnd="8dp"
+                android:text="Alexis Quezada" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="380dp">
+
+                <TextView
+                    android:id="@+id/txtCoordenadas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/txtDirecion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="45dp"
+                    android:text="TextView" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</FrameLayout>
