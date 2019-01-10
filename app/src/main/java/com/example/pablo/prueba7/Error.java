@@ -27,7 +27,7 @@ public class Error extends AppCompatActivity {
                 Thread.sleep(4000); // Let the Toast display before app will get shutdown
             }
             catch (InterruptedException e) {    }
-            System.exit(1);
+            System.exit(2);
         }
     });
     }

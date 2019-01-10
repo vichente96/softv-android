@@ -1,7 +1,6 @@
 package com.example.pablo.prueba7.DeepCons;
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.example.pablo.prueba7.InstalacionFragment;
@@ -30,11 +29,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RequestDeepCons extends AppCompatActivity {
-    public Service getDeepConsService() throws JSONException {
+public class RequestInfoCliente extends AppCompatActivity {
+    public Service getInfoClienteService() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Clv_Orden", 345);
+        jsonObject.put("CONTRATO", DeepConsModel.Contrato);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
 
@@ -63,43 +62,33 @@ public class RequestDeepCons extends AppCompatActivity {
         return retrofit.create(Service.class);
     }
 
-    public void getDeepCons() {
+    public void getInfoCliente() {
         final List<String> lista = new ArrayList();
 
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         Service service = null;
         try {
-            service = getDeepConsService();
+            service = getInfoClienteService();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Call<JsonObject> call = service.getDataDeepCons();
+        Call<JsonObject> call = service.getDataInfoCliente();
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                JsonObject userJson = response.body().getAsJsonObject("GetDeepConsultaOrdSerResult");
-               // Log.d("response12", userJson.get("Obs").toString());
-                DeepConsModel user = new DeepConsModel(
-                        userJson.get("Contrato").getAsInt(),
-                        userJson.get("ContratoCom").getAsString(),
-                        userJson.get("STATUS").getAsString(),
-                        userJson.get("NombreTecnico").getAsString(),
-                        userJson.get("Obs").getAsString(),
-                        userJson.get("Clv_Orden").getAsString()
+                JsonObject userJson = response.body().getAsJsonObject("GetDeepBUSCLIPORCONTRATO_OrdSerResult");
+                InfoClienteModelo user = new InfoClienteModelo(
+                        userJson.get("CALLE").getAsString(),
+                        userJson.get("CIUDAD").getAsString(),
+                        userJson.get("COLONIA").getAsString(),
+                        userJson.get("Compania").getAsString(),
+                        userJson.get("NOMBRE").getAsString(),
+                        userJson.get("NUMERO").getAsString()
                 );
-                MainActivity.NombreTec.setText(DeepConsModel.NombreTecnico);
-                if(DeepConsModel.STATUS.equals("E")){
-                    MainActivity.Status.setText("Ejecutada");
 
-                }else if(DeepConsModel.STATUS.equals("P")){
-                    MainActivity.Status.setText("Pendiente");
-
-                }else if(DeepConsModel.STATUS.equals("V")){
-                    MainActivity.Status.setText("En Visita");
-                }
-                MainActivity.Contrato.setText( String.valueOf(DeepConsModel.Contrato));
-                InstalacionFragment.Obs.setText("Observacion: "+String.valueOf(DeepConsModel.Obs));
-
+                MainActivity.Empresa.setText(InfoClienteModelo.Compania);
+                MainActivity.Direccion.setText(InfoClienteModelo.CALLE+" "+InfoClienteModelo.NUMERO+" "+InfoClienteModelo.COLONIA);
+                MainActivity.Nombre.setText(InfoClienteModelo.NOMBRE);
             }
 
             @Override

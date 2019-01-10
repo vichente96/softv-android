@@ -8,13 +8,15 @@ public class DeepConsModel {
     public static String STATUS;
     public static String NombreTecnico;
     public static String Obs;
+    public static String Clv_Orden;
 
-    public DeepConsModel(int Contrato, String ContratoCom, String STATUS, String NombreTecnico, String Obs){
+    public DeepConsModel(int Contrato, String ContratoCom, String STATUS, String NombreTecnico, String Obs, String Clv_Orden){
         this.Contrato = Contrato;
         this.ContatoCom = ContratoCom;
         this.STATUS = STATUS;
         this.NombreTecnico = NombreTecnico;
         this.Obs = Obs;
+        this.Clv_Orden = Clv_Orden;
 
     }
 
@@ -56,5 +58,13 @@ public class DeepConsModel {
 
     public static void setObs(String obs) {
         Obs = obs;
+    }
+
+    public static String getClv_Orden() {
+        return Clv_Orden;
+    }
+
+    public static void setClv_Orden(String clv_Orden) {
+        Clv_Orden = clv_Orden;
     }
 }

@@ -1,6 +1,5 @@
 package com.example.pablo.prueba7;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,13 +14,19 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.pablo.prueba7.DeepCons.DeepConsModel;
+import com.example.pablo.prueba7.DeepCons.RequestInfoCliente;
+
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
     private ViewPager mViewPager;
     ScrollView hzScrollView;
     Button info;
     RelativeLayout layoutAnimado;
-    public static TextView NombreTec, Contrato, Status;
+    public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion;
+    public static String NumOrden;
+    RequestInfoCliente requestInfoCliente = new RequestInfoCliente();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +38,15 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         NombreTec = (TextView)findViewById(R.id.tecnico);
         Contrato = (TextView)findViewById(R.id.contrato);
         Status = (TextView)findViewById(R.id.status);
+        Empresa = (TextView)findViewById(R.id.infoempresa);
+        Nombre = (TextView)findViewById(R.id.infonombre);
+        Direccion = (TextView)findViewById(R.id.infodireccion);
 
 //* Boton de informacion
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                requestInfoCliente.getInfoCliente();
                 if(layoutAnimado.getVisibility()==View.GONE) {
                     layoutAnimado.setVisibility(View.VISIBLE);
                     hzScrollView.setVisibility(View.VISIBLE);
@@ -62,9 +71,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         mViewPager.setOnPageChangeListener(this);
 
-        ActionBar actionBar = getSupportActionBar();
+
         //* Nombre del AcctionBar
-        actionBar.setTitle("# de Trabajo: 4433");
+        ActionBar actionBar = getSupportActionBar();
+
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
 

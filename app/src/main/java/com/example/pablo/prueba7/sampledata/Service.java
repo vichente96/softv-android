@@ -24,6 +24,8 @@ public interface Service {
     Call<Example1> getDataListOrd();
     @POST(Constants.URL_GET_DEEP_CONS)
     Call<JsonObject> getDataDeepCons();
+    @POST(Constants.URL_GET_INFO_CLIENTE)
+    Call<JsonObject> getDataInfoCliente();
 
 
 }

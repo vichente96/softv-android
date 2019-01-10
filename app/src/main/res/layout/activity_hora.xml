@@ -212,20 +212,14 @@
 
             </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="290dp"
-                android:textSize="15dp"
-                android:id="@+id/obs"
-                />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="333dp"
+                android:layout_marginTop="290dp"
                 android:text="Tecnico Secundario"
                 android:textSize="20dp" />
 
@@ -237,26 +231,33 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="249dp"
-                android:layout_marginTop="337dp"
+                android:layout_marginTop="290dp"
                 android:layout_marginEnd="8dp"
                 android:text="Alexis Quezada" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="330dp"
+                android:textSize="20dp"
+                android:text="Observaciones:"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="355dp"
+                android:textSize="20dp"
+                android:id="@+id/obs"
+                />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginTop="380dp">
+                android:layout_marginTop="420dp">
 
                 <TextView
                     android:id="@+id/txtCoordenadas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
-
-                <TextView
-                    android:id="@+id/txtDirecion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
                     android:text="TextView" />
 
             </RelativeLayout>

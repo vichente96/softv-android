@@ -78,7 +78,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
 
         ///////////////////GPS//////////////////////////////
         coordenadas = view.findViewById(R.id.txtCoordenadas);
-        direccion = view.findViewById(R.id.txtDirecion);
+
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
@@ -238,7 +238,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
         mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, Local);
 
         coordenadas.setText("Localización agregada");
-        direccion.setText("");
+//        direccion.setText("");
     }
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -251,7 +251,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     }
 
     public void setLocation(Location loc) {
-        /*Obtener la direccion de la calle a partir de la latitud y la longitud*/
+        /*Obtener la direccion de la calle a partir de la latitud y la longitud
         if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
             try {
                 Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
@@ -264,7 +264,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
     /* Aqui empieza la Clase Localizacion */

@@ -87,7 +87,7 @@ public class RequestProxCita extends AppCompatActivity {
                             userJson.get("NUMERO").getAsString(),
                             userJson.get("Tipo").getAsString()
                     );
-                    Inicio.trabajo.setText(user.Tipo +" Contrato: "+user.Contrato+ " Hora: "+user.Hora);
+                    Inicio.trabajo.setText("Tipo de trabajo: "+user.Tipo +" Contrato: "+user.Contrato+ " Hora: "+user.Hora);
                     Inicio.direccion.setText("Colonia: " + user.Colonia+" Calle: "+user.Calle);
 
 

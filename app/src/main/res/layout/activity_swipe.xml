@@ -108,8 +108,8 @@
 
         <RelativeLayout
             android:id="@+id/animado"
-            android:layout_width="500dp"
-            android:layout_height="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_marginTop="50dp"
             android:background="#c0f2f1"
@@ -133,19 +133,20 @@
                 android:layout_width="97dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="52dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="50dp"
                 android:text="Empresa:"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/infoempresa"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="207dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="75dp"
                 android:hint="TLAYACAPAN"
                 android:textSize="20dp" />
 
@@ -154,19 +155,20 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="107dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="115dp"
                 android:text="Nombre:"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/infonombre"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="208dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="140dp"
                 android:hint="MARIA EMMA"
                 android:textSize="20dp" />
 
@@ -175,20 +177,20 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="149dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="180dp"
                 android:text="Direccion:"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
-
-                android:layout_width="129dp"
+                android:id="@+id/infodireccion"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="205dp"
-                android:layout_marginTop="148dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="200dp"
                 android:text="xxxxxxxxxxx"
                 android:textSize="20dp" />
 
@@ -197,18 +199,19 @@
                 android:layout_height="36dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="192dp"
+                android:layout_marginTop="250dp"
                 android:text="Servicions Asignados"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/infoservicios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="6dp"
-                android:layout_marginTop="238dp"
+                android:layout_marginTop="280dp"
                 android:text="Servicios de Servicio de Tv por Cable\n
 Paquete : SERVICIOS DE TV BASICO-BASI2\n
 * Status Actual : Desconectado : Oct 2018\n"
