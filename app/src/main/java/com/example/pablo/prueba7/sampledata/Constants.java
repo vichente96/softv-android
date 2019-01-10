@@ -8,6 +8,7 @@ public class Constants {
     public static final String URL_GET_ORDQUE="OrdSer/GetDameOrdenesQuejasTotales";
     public static final String NEW_URL="http://192.168.50.100:8082/SoftvWCFService.svc/";
     public static final String URL_GET_LIST_ORD="AplicacionMovil/GetDameListadoOrdenesAgendadas";
+    public static final String URL_GET_DEEP_CONS="ConsultaOrdSer/GetDeepConsultaOrdSer";
 
 
 
