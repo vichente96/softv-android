@@ -10,6 +10,7 @@ public class Constants {
     public static final String URL_GET_LIST_ORD="AplicacionMovil/GetDameListadoOrdenesAgendadas";
     public static final String URL_GET_DEEP_CONS="ConsultaOrdSer/GetDeepConsultaOrdSer";
     public static final String URL_GET_INFO_CLIENTE="BUSCLIPORCONTRATO_OrdSer/GetDeepBUSCLIPORCONTRATO_OrdSer";
+    public static final String URL_GET_SERVICIOS="AplicacionMovil/GetdameSerDELCliresumen";
 
 
 

@@ -5,6 +5,7 @@ import com.example.pablo.prueba7.ListOrd.Example1;
 import com.example.pablo.prueba7.OrdQue.Example;
 import com.example.pablo.prueba7.OrdQue.Queja;
 import com.example.pablo.prueba7.Request.JSONResponseTecnico;
+import com.example.pablo.prueba7.Servicios.Example2;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -26,6 +27,8 @@ public interface Service {
     Call<JsonObject> getDataDeepCons();
     @POST(Constants.URL_GET_INFO_CLIENTE)
     Call<JsonObject> getDataInfoCliente();
+    @POST(Constants.URL_GET_SERVICIOS)
+    Call<Example2> getDataServicios();
 
 
 }

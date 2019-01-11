@@ -98,7 +98,7 @@ public class RequestDeepCons extends AppCompatActivity {
                     MainActivity.Status.setText("En Visita");
                 }
                 MainActivity.Contrato.setText( String.valueOf(DeepConsModel.Contrato));
-                InstalacionFragment.Obs.setText("Observacion: "+String.valueOf(DeepConsModel.Obs));
+                InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
 
             }
 

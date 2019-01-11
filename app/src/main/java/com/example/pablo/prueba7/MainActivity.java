@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.pablo.prueba7.DeepCons.DeepConsModel;
 import com.example.pablo.prueba7.DeepCons.RequestInfoCliente;
+import com.example.pablo.prueba7.Servicios.RequestServicios;
 
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
@@ -23,9 +24,10 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     ScrollView hzScrollView;
     Button info;
     RelativeLayout layoutAnimado;
-    public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion;
+    public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion, InfoServicios;
     public static String NumOrden;
     RequestInfoCliente requestInfoCliente = new RequestInfoCliente();
+    RequestServicios requestServicios = new RequestServicios();
 
 
     @Override
@@ -41,12 +43,14 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Empresa = (TextView)findViewById(R.id.infoempresa);
         Nombre = (TextView)findViewById(R.id.infonombre);
         Direccion = (TextView)findViewById(R.id.infodireccion);
+        InfoServicios = (TextView)findViewById(R.id.infoservicios);
 
 //* Boton de informacion
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 requestInfoCliente.getInfoCliente();
+                requestServicios.getServicios();
                 if(layoutAnimado.getVisibility()==View.GONE) {
                     layoutAnimado.setVisibility(View.VISIBLE);
                     hzScrollView.setVisibility(View.VISIBLE);
