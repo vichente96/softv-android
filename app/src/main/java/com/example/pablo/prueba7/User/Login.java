@@ -54,6 +54,7 @@ public class Login extends AppCompatActivity {
         entrar = (Button)findViewById(R.id.entrar);
         clave = (TextView)findViewById(R.id.tokenview);
         cvl_usuario= usurio.getText().toString();
+        setTitle(null);
 /*
         token.setOnClickListener(new View.OnClickListener() {
             @Override

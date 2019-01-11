@@ -7,51 +7,48 @@
     <ImageView
         android:layout_width="229dp"
         android:layout_height="164dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
         android:src="@drawable/prueba"
-
+        android:id="@+id/logo"
         />
 
+
+
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="82dp"
-        android:layout_marginBottom="203dp"
-        android:hint="Usuario"
-        android:textSize="30dp"
-        android:maxLines="1"
         android:id="@+id/usurio"
-        android:text="SISTE"
-        android:singleLine="true"
-        />
-
-    <EditText
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="82dp"
-        android:layout_marginBottom="123dp"
-        android:hint="Contraseña"
-        android:text="0601x-2L"
-        android:textSize="30dp"
-            android:singleLine="true"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:hint="Usuario"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="SISTE"
+        android:textSize="30dp" />
+
+    <EditText
         android:id="@+id/contraseña"
-        />
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usurio"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Contraseña"
+        android:singleLine="true"
+        android:text="0601x-2L"
+        android:textSize="30dp" />
 
     <Button
+        android:id="@+id/entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginBottom="48dp"
+        android:layout_below="@+id/contraseña"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="Entrar"
-        android:textSize="30dp"
-        android:id="@+id/entrar"></Button>
+        android:textSize="30dp"></Button>
 
     <TextView
         android:layout_width="wrap_content"

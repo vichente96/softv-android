@@ -1,5 +1,6 @@
 package com.example.pablo.prueba7;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +19,8 @@ import com.example.pablo.prueba7.DeepCons.DeepConsModel;
 import com.example.pablo.prueba7.DeepCons.RequestInfoCliente;
 import com.example.pablo.prueba7.Servicios.RequestServicios;
 
+import static java.security.AccessController.getContext;
+
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
     private ViewPager mViewPager;
@@ -25,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     Button info;
     RelativeLayout layoutAnimado;
     public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion, InfoServicios;
-    public static String NumOrden;
     RequestInfoCliente requestInfoCliente = new RequestInfoCliente();
     RequestServicios requestServicios = new RequestServicios();
 
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Nombre = (TextView)findViewById(R.id.infonombre);
         Direccion = (TextView)findViewById(R.id.infodireccion);
         InfoServicios = (TextView)findViewById(R.id.infoservicios);
-
+        setTitle(null);
 //* Boton de informacion
         info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
 
         //* Nombre del AcctionBar
         ActionBar actionBar = getSupportActionBar();
+
 
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 

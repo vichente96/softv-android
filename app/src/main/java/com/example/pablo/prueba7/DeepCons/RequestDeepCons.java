@@ -3,6 +3,7 @@ package com.example.pablo.prueba7.DeepCons;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+
 import com.example.pablo.prueba7.InstalacionFragment;
 import com.example.pablo.prueba7.MainActivity;
 import com.example.pablo.prueba7.User.UserModel;
@@ -30,6 +31,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RequestDeepCons extends AppCompatActivity {
+
     public Service getDeepConsService() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();

@@ -117,7 +117,6 @@ public class Inicio extends AppCompatActivity
     }
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            //Acción
         }
         return false;
     }
