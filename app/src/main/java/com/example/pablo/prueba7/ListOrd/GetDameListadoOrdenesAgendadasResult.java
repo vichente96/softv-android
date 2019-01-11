@@ -7,12 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class GetDameListadoOrdenesAgendadasResult {
 
-    @SerializedName("BaseIdUser")
-    @Expose
-    private Integer baseIdUser;
-    @SerializedName("BaseRemoteIp")
-    @Expose
-    private Object baseRemoteIp;
+
     @SerializedName("Clv_Orden")
     @Expose
     private Integer clvOrden;
@@ -23,21 +18,7 @@ public class GetDameListadoOrdenesAgendadasResult {
     @Expose
     private String status;
 
-    public Integer getBaseIdUser() {
-        return baseIdUser;
-    }
 
-    public void setBaseIdUser(Integer baseIdUser) {
-        this.baseIdUser = baseIdUser;
-    }
-
-    public Object getBaseRemoteIp() {
-        return baseRemoteIp;
-    }
-
-    public void setBaseRemoteIp(Object baseRemoteIp) {
-        this.baseRemoteIp = baseRemoteIp;
-    }
 
     public Integer getClvOrden() {
         return clvOrden;

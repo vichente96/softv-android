@@ -1,6 +1,5 @@
 package com.example.pablo.prueba7.DeepCons;
 
-import java.util.Objects;
 
 public class DeepConsModel {
     public static int Contrato;

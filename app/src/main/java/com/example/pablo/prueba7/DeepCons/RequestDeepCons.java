@@ -1,7 +1,6 @@
 package com.example.pablo.prueba7.DeepCons;
 
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.example.pablo.prueba7.InstalacionFragment;

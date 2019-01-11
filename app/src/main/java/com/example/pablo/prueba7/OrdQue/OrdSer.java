@@ -5,34 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class OrdSer {
 
-    @SerializedName("BaseIdUser")
-    @Expose
-    private Integer baseIdUser;
-    @SerializedName("BaseRemoteIp")
-    @Expose
-    private Object baseRemoteIp;
+
     @SerializedName("Status")
     @Expose
     private String status;
     @SerializedName("Total")
     @Expose
     private Integer total;
-
-    public Integer getBaseIdUser() {
-        return baseIdUser;
-    }
-
-    public void setBaseIdUser(Integer baseIdUser) {
-        this.baseIdUser = baseIdUser;
-    }
-
-    public Object getBaseRemoteIp() {
-        return baseRemoteIp;
-    }
-
-    public void setBaseRemoteIp(Object baseRemoteIp) {
-        this.baseRemoteIp = baseRemoteIp;
-    }
 
     public String getStatus() {
         return status;

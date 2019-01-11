@@ -7,7 +7,6 @@ import android.content.Intent;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -19,14 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.pablo.prueba7.DeepCons.DeepConsModel;
-import com.example.pablo.prueba7.DeepCons.RequestDeepCons;
 import com.example.pablo.prueba7.Error;
 import com.example.pablo.prueba7.Inicio;
 import com.example.pablo.prueba7.ListOrd.RequestListOrd;
 import com.example.pablo.prueba7.R;
 
-import org.json.JSONException;
 
 
 public class Login extends AppCompatActivity {
@@ -40,7 +36,7 @@ public class Login extends AppCompatActivity {
     public static String enco;
     public static String cvl_usuario;
     UserController userController = new UserController();
-    RequestListOrd requestListOrd = new RequestListOrd();
+
 
     public final static String CHANNEL_ID = "NOTIFICACION";
     public final static int NOTIFICACION_ID = 0;

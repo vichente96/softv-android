@@ -3,7 +3,7 @@ package com.example.pablo.prueba7.DeepCons;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.example.pablo.prueba7.InstalacionFragment;
+
 import com.example.pablo.prueba7.MainActivity;
 import com.example.pablo.prueba7.User.UserModel;
 import com.example.pablo.prueba7.sampledata.Constants;

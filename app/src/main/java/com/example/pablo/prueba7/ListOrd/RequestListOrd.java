@@ -3,19 +3,13 @@ package com.example.pablo.prueba7.ListOrd;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.pablo.prueba7.Inicio;
-import com.example.pablo.prueba7.User.UserModel;
+
 import com.example.pablo.prueba7.sampledata.Constants;
-import com.example.pablo.prueba7.sampledata.RestApiAdapter;
 import com.example.pablo.prueba7.sampledata.Service;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.util.ArrayList;

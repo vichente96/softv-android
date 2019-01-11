@@ -6,8 +6,6 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -26,10 +24,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.List;
-import java.util.Locale;
 
 
 /**

@@ -16,11 +16,7 @@ public class RestApiAdapter {
 
     public String abc="Basic: "+Login.enco;
     public Service getClientService() {
-        Dispatcher dispatcher = new Dispatcher();
-        dispatcher.setMaxRequests(1);
-        dispatcher.setMaxRequestsPerHost(1);
             OkHttpClient client = new OkHttpClient.Builder()
-                        .dispatcher(dispatcher)
                         .addInterceptor(new Interceptor() {
 
                 @Override
