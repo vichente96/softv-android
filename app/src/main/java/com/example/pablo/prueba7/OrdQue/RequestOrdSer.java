@@ -132,6 +132,7 @@ public class RequestOrdSer extends AppCompatActivity {
                     Inicio.REP=dat.get(2).getTotal();
                     Inicio.RV=dat.get(3).getTotal();
                 }
+                Inicio.Grafica();
             }
             @Override
             public void onFailure(Call<Example> call, Throwable t) {
