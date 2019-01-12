@@ -3,7 +3,7 @@ package com.example.pablo.prueba7;
 import android.content.Context;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
+
 import android.widget.Toast;
 
 public class Error extends AppCompatActivity {

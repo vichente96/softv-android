@@ -1,4 +1,4 @@
-package com.example.pablo.prueba7.User;
+package com.example.pablo.prueba7.Modelos;
 
 public class UserModel {
     private String Usuario;

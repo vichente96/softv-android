@@ -1,17 +1,16 @@
-package com.example.pablo.prueba7.OrdQue;
+package com.example.pablo.prueba7.Modelos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class OrdSer {
-
+public class Queja {
 
     @SerializedName("Status")
     @Expose
-    private String status;
+    public String status;
     @SerializedName("Total")
     @Expose
-    private Integer total;
+    public Integer total;
 
     public String getStatus() {
         return status;

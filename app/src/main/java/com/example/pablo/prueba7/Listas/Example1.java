@@ -1,5 +1,6 @@
-package com.example.pablo.prueba7.ListOrd;
+package com.example.pablo.prueba7.Listas;
 
+import com.example.pablo.prueba7.Modelos.GetDameListadoOrdenesAgendadasResult;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

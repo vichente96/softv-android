@@ -1,10 +1,11 @@
 package com.example.pablo.prueba7.sampledata;
 
 
-import com.example.pablo.prueba7.ListOrd.Example1;
-import com.example.pablo.prueba7.OrdQue.Example;
-import com.example.pablo.prueba7.Request.JSONResponseTecnico;
-import com.example.pablo.prueba7.Servicios.Example2;
+
+import com.example.pablo.prueba7.Listas.Example;
+import com.example.pablo.prueba7.Listas.Example1;
+import com.example.pablo.prueba7.Listas.Example2;
+import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;

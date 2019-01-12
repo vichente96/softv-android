@@ -1,4 +1,4 @@
-package com.example.pablo.prueba7.User;
+package com.example.pablo.prueba7;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -18,10 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.pablo.prueba7.Error;
-import com.example.pablo.prueba7.Inicio;
-import com.example.pablo.prueba7.ListOrd.RequestListOrd;
-import com.example.pablo.prueba7.R;
+import com.example.pablo.prueba7.Request.Request;
 
 
 
@@ -35,7 +32,7 @@ public class Login extends AppCompatActivity {
     String user;
     public static String enco;
     public static String cvl_usuario;
-    UserController userController = new UserController();
+    Request request = new Request();
 
 
     public final static String CHANNEL_ID = "NOTIFICACION";
@@ -76,11 +73,14 @@ public class Login extends AppCompatActivity {
 
                user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
-                userController.getReviews();
-                if (UserController.b=true){
+                request.getReviews();
+                if (request.b=true){
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                   Intent intento = new Intent(Login.this, Inicio.class);
                   startActivity(intento);
+
+
+
                 }
             }
         });

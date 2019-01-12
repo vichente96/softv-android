@@ -14,8 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.pablo.prueba7.OrdQue.RequestOrdSer;
-import com.example.pablo.prueba7.ProximoTrabajo.RequestProxCita;
+import com.example.pablo.prueba7.Request.Request;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -33,9 +32,9 @@ public class Inicio extends AppCompatActivity
     public static int OE,OP,OV,RE,RP,REP,RV;
 
     public static PieChart  pieChart;
-    RequestOrdSer requestOrdSer = new RequestOrdSer();
+    Request request = new Request();
     public static TextView trabajo, direccion;
-    RequestProxCita requestProxCita = new RequestProxCita();
+
 
 
     @Override
@@ -90,9 +89,9 @@ public class Inicio extends AppCompatActivity
         if (id == R.id.Inicio) {
             Intent intent1 = new Intent(Inicio.this, Inicio.class);
             startActivity(intent1);
-            requestProxCita.getProximaCita();
+            request.getProximaCita();
             try {
-                requestOrdSer.getOrdenes();
+                request.getOrdenes();
             } catch (JSONException e) {
                 e.printStackTrace();
             }

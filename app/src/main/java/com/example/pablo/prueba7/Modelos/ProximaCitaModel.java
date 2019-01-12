@@ -1,4 +1,4 @@
-package com.example.pablo.prueba7.ProximoTrabajo;
+package com.example.pablo.prueba7.Modelos;
 
 public class ProximaCitaModel {
     public  String Calle;

@@ -14,19 +14,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.pablo.prueba7.OrdQue.RequestOrdSer;
-import com.example.pablo.prueba7.ProximoTrabajo.RequestProxCita;
-import com.example.pablo.prueba7.User.Login;
-import com.example.pablo.prueba7.User.UserController;
-import com.example.pablo.prueba7.User.UserModel;
+import com.example.pablo.prueba7.Modelos.UserModel;
+import com.example.pablo.prueba7.Request.Request;
+
 
 import org.json.JSONException;
 
 public class Configuracion extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Button CS;
-    RequestProxCita requestProxCita = new RequestProxCita();
-    RequestOrdSer requestOrdSer = new RequestOrdSer();
+    Request request = new Request();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +37,7 @@ public class Configuracion extends AppCompatActivity
             public void onClick(View v) {
                 UserModel.Token="";
                 try {
-                    UserController.b = false;
+                     request.b = false;
                     Intent intento = new Intent(Configuracion.this, Login.class);
                     startActivity(intento);
                 }
@@ -89,9 +86,9 @@ public class Configuracion extends AppCompatActivity
         if (id == R.id.Inicio) {
             Intent intent1 = new Intent(Configuracion.this, Inicio.class);
             startActivity(intent1);
-            requestProxCita.getProximaCita();
-            try {
-                requestOrdSer.getOrdenes();
+           request.getProximaCita();
+           try {
+                request.getOrdenes();
             } catch (JSONException e) {
                 e.printStackTrace();
             }

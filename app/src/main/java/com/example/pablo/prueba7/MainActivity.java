@@ -1,6 +1,5 @@
 package com.example.pablo.prueba7;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,11 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.example.pablo.prueba7.DeepCons.DeepConsModel;
-import com.example.pablo.prueba7.DeepCons.RequestInfoCliente;
-import com.example.pablo.prueba7.Servicios.RequestServicios;
+import com.example.pablo.prueba7.Request.Request;
 
-import static java.security.AccessController.getContext;
+
+import org.json.JSONException;
+
 
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
@@ -28,8 +27,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     Button info;
     RelativeLayout layoutAnimado;
     public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion, InfoServicios;
-    RequestInfoCliente requestInfoCliente = new RequestInfoCliente();
-    RequestServicios requestServicios = new RequestServicios();
+    Request request = new Request();
 
 
     @Override
@@ -51,8 +49,13 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestInfoCliente.getInfoCliente();
-                requestServicios.getServicios();
+                try {
+                    request.getInfoCliente();
+                    request.getServicios();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
                 if(layoutAnimado.getVisibility()==View.GONE) {
                     layoutAnimado.setVisibility(View.VISIBLE);
                     hzScrollView.setVisibility(View.VISIBLE);

@@ -2,7 +2,6 @@ package com.example.pablo.prueba7;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,18 +14,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
-import com.example.pablo.prueba7.DeepCons.RequestDeepCons;
-import com.example.pablo.prueba7.OrdQue.RequestOrdSer;
-import com.example.pablo.prueba7.ProximoTrabajo.RequestProxCita;
+import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
 
 public class Orden extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
-    RequestProxCita requestProxCita = new RequestProxCita();
-    RequestOrdSer requestOrdSer = new RequestOrdSer();
-    RequestDeepCons requestDeepCons = new RequestDeepCons();
+    Request request = new Request();
     Button orden1, confi;
 
 
@@ -50,7 +45,11 @@ public class Orden extends AppCompatActivity
 
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
-                requestDeepCons.getDeepCons();
+                try {
+                    request.getDeepCons();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
 
             }
@@ -96,9 +95,9 @@ public class Orden extends AppCompatActivity
         if (id == R.id.Inicio) {
             Intent intent1 = new Intent(Orden.this, Inicio.class);
             startActivity(intent1);
-            requestProxCita.getProximaCita();
+           request.getProximaCita();
             try {
-                requestOrdSer.getOrdenes();
+                request.getOrdenes();
             } catch (JSONException e) {
                 e.printStackTrace();
             }

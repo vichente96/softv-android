@@ -1,4 +1,4 @@
-package com.example.pablo.prueba7.Servicios;
+package com.example.pablo.prueba7.Modelos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

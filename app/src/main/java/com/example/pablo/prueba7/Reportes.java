@@ -12,15 +12,14 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.pablo.prueba7.OrdQue.RequestOrdSer;
-import com.example.pablo.prueba7.ProximoTrabajo.RequestProxCita;
+
+import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
 
 public class Reportes extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    RequestProxCita requestProxCita = new RequestProxCita();
-    RequestOrdSer requestOrdSer = new RequestOrdSer();
+    Request request = new Request();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +68,9 @@ public class Reportes extends AppCompatActivity
             if (id == R.id.Inicio) {
                 Intent intent1 = new Intent(Reportes.this, Inicio.class);
                 startActivity(intent1);
-                requestProxCita.getProximaCita();
+               request.getProximaCita();
                 try {
-                    requestOrdSer.getOrdenes();
+                    request.getOrdenes();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

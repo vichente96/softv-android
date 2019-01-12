@@ -1,4 +1,4 @@
-package com.example.pablo.prueba7.OrdQue;
+package com.example.pablo.prueba7.Modelos;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

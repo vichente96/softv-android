@@ -1,12 +1,12 @@
-package com.example.pablo.prueba7.Request;
+package com.example.pablo.prueba7.Modelos;
 
 
-public class TecnicoModel {
+public class Get_ClvTecnicoResult {
     public String clv_tecnico;
 
 
 
-    public TecnicoModel(String clv_tecnico) {
+    public Get_ClvTecnicoResult(String clv_tecnico) {
         this.clv_tecnico = clv_tecnico;
 
     }
