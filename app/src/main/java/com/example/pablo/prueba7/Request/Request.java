@@ -49,6 +49,7 @@ public class Request extends AppCompatActivity {
     ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
 
+    //////////////////////////////////////////////
     public void getReviews() {
         try {
             final List<String> lista = new ArrayList();
@@ -76,8 +77,6 @@ public class Request extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
-
                 }
 
                 @Override
@@ -89,6 +88,9 @@ public class Request extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
         }
     }
+
+    //////////////////////////////////////////////
+
     public void getClv_tecnico() throws JSONException {
         Service service = services.getTecService();
         Call<JSONResponseTecnico> call = service.getDataTec();
@@ -124,6 +126,7 @@ public class Request extends AppCompatActivity {
         });
     }
 
+    //////////////////////////////////////////////
 
     public void getProximaCita() {
         Service service = null;
@@ -160,6 +163,9 @@ public class Request extends AppCompatActivity {
                 }
             });
     }
+
+    //////////////////////////////////////////////
+
     public void getOrdenes() throws JSONException {
         Service service = services.getOrdSerService();
         Call<Example> call = service.getDataOrdenes();
@@ -202,6 +208,10 @@ public class Request extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    //////////////////////////////////////////////
+
+
     public void getQuejas() throws JSONException {
         Service service = services.getOrdSerService();
         Call<Example> call = service.getDataOrdenes();
@@ -235,6 +245,9 @@ public class Request extends AppCompatActivity {
 
         });
     }
+
+    //////////////////////////////////////////////
+
     public void getListOrd() throws JSONException {
 
         Service service = services.getListOrdService();
@@ -253,6 +266,7 @@ public class Request extends AppCompatActivity {
                     for (int i=0; i<dat.size(); i++) {
                         Log.d("Clave de orden", String.valueOf(dat.get(i).getClvOrden()));
                         Log.d("Contrato", dat.get(i).getContrato());
+                        Log.d("Nombre", dat.get(i).getNombre());
                         Log.d("Status", dat.get(i).getStatus());
                     }
                 }
@@ -268,6 +282,9 @@ public class Request extends AppCompatActivity {
         });
 
     }
+
+    //////////////////////////////////////////////
+
     public void getDeepCons()throws JSONException {
         Service service = services.getDeepConsService();
         Call<JsonObject> call = service.getDataDeepCons();
@@ -305,6 +322,9 @@ public class Request extends AppCompatActivity {
             }
         });
     }
+
+    //////////////////////////////////////////////
+
     public void getInfoCliente()throws JSONException {
         Service service = services.getInfoClienteService();
         Call<JsonObject> call = service.getDataInfoCliente();
@@ -332,6 +352,9 @@ public class Request extends AppCompatActivity {
             }
         });
     }
+
+    //////////////////////////////////////////////
+
     public void getServicios() throws JSONException {
 
         Service service = services.getServiciosService();
@@ -358,8 +381,6 @@ public class Request extends AppCompatActivity {
             public void onFailure(Call<Example2> call, Throwable t) {
 
             }
-
-
         });
 
     }

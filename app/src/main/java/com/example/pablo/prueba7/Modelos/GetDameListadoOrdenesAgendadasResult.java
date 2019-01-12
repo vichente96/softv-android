@@ -14,6 +14,9 @@ public class GetDameListadoOrdenesAgendadasResult {
     @SerializedName("Contrato")
     @Expose
     private String contrato;
+    @SerializedName("NOMBRE")
+    @Expose
+    private String nombre;
     @SerializedName("Status")
     @Expose
     private String status;
@@ -34,6 +37,14 @@ public class GetDameListadoOrdenesAgendadasResult {
 
     public void setContrato(String contrato) {
         this.contrato = contrato;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getStatus() {
