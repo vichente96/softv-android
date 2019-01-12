@@ -21,6 +21,9 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
+
+/////////TOKEN///////
 public class Services {
     public static int clave;
     public String abc="Basic: "+Login.enco;
@@ -48,6 +51,9 @@ public class Services {
 
         return retrofit.create(Service.class);
     }
+
+    /////////////Servicio Tecnico/////////////////////
+
     public Service getTecService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Clv_Usuario",Login.cvl_usuario);
@@ -84,6 +90,8 @@ public class Services {
 
         return null;
     }
+
+    /////////////Proximo Servicio/////////////////////
     public Service getProxService() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
@@ -116,6 +124,10 @@ public class Services {
 
         return retrofit.create(Service.class);
     }
+
+    /////////////Orden de servicio/////////////////////
+
+
     public Service getOrdSerService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("clv_tecnico", clave);
@@ -143,6 +155,9 @@ public class Services {
         return retrofit.create(Service.class);
 
     }
+
+    /////////////Lista de ordenes/////////////////////
+
     public Service getListOrdService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
         JsonArray jsonObject1 = new JsonArray();
@@ -177,6 +192,9 @@ public class Services {
         return retrofit.create(Service.class);
 
     }
+
+    /////////////Servicios Service/////////////////////
+
     public Service getServiciosService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
 
@@ -207,6 +225,9 @@ public class Services {
         return retrofit.create(Service.class);
 
     }
+
+
+    /////////////xxxxxxx/////////////////////
     public Service getDeepConsService() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
@@ -238,6 +259,8 @@ public class Services {
 
         return retrofit.create(Service.class);
     }
+
+    /////////////Informacion del cliente/////////////////////
     public Service getInfoClienteService() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
