@@ -52,7 +52,7 @@ public class Request extends AppCompatActivity {
     ArrayList<List<OrdSer>> dataord;
     ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
-    ArrayList<List<TrabajosSer>> dataTrabajos;
+    ArrayList<List<GetBUSCADetOrdSerListResult>> dataTrabajos;
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
@@ -409,10 +409,10 @@ public class Request extends AppCompatActivity {
             @Override
             public void onResponse(Call<Example3> call, Response<Example3> response) {
                 Example3 jsonResponse = response.body();
-                dataTrabajos =  new ArrayList<List<TrabajosSer>>(asList(jsonResponse.getBUSCADetOrdSerListResult.getTrabajosSer()));
-                Iterator<List<TrabajosSer>> itData = dataTrabajos.iterator();
+                dataTrabajos =  new ArrayList<List<GetBUSCADetOrdSerListResult>>(asList(jsonResponse.getGetBUSCADetOrdSerListResult()));
+                Iterator<List<GetBUSCADetOrdSerListResult>> itData = dataTrabajos.iterator();
                 while (itData.hasNext()) {
-                    List<TrabajosSer> dat = (List<TrabajosSer>) itData.next();
+                    List<GetBUSCADetOrdSerListResult> dat = (List<GetBUSCADetOrdSerListResult>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
                         Log.d("response11", dat.get(i).getDescripcion());
 

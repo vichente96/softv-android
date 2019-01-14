@@ -7,44 +7,104 @@ import java.util.List;
 
 public class GetBUSCADetOrdSerListResult {
 
-    @SerializedName("TrabajosSer")
+    @SerializedName("BaseIdUser")
     @Expose
-    public static List<TrabajosSer> TrabajosSer = null;
-    @SerializedName("Descripcion")
+    private Integer baseIdUser;
+    @SerializedName("BaseRemoteIp")
     @Expose
-    public static String Descripcion;
+    private Object baseRemoteIp;
     @SerializedName("Accion")
     @Expose
-    public static String  Accion;
+    private String accion;
+    @SerializedName("Clave")
+    @Expose
+    private Integer clave;
+    @SerializedName("Clv_Orden")
+    @Expose
+    private Integer clvOrden;
+    @SerializedName("Clv_Trabajo")
+    @Expose
+    private Integer clvTrabajo;
+    @SerializedName("Descripcion")
+    @Expose
+    private String descripcion;
+    @SerializedName("Obs")
+    @Expose
+    private Object obs;
+    @SerializedName("SeRealiza")
+    @Expose
+    private Boolean seRealiza;
 
-
-
-    public String getDescripcion() {
-        return Descripcion;
+    public Integer getBaseIdUser() {
+        return baseIdUser;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.Descripcion = descripcion;
+    public void setBaseIdUser(Integer baseIdUser) {
+        this.baseIdUser = baseIdUser;
+    }
+
+    public Object getBaseRemoteIp() {
+        return baseRemoteIp;
+    }
+
+    public void setBaseRemoteIp(Object baseRemoteIp) {
+        this.baseRemoteIp = baseRemoteIp;
     }
 
     public String getAccion() {
-        return Accion;
+        return accion;
     }
 
     public void setAccion(String accion) {
-        this.Accion = accion;
+        this.accion = accion;
     }
 
-
-    public List<TrabajosSer> getTrabajosSer() {
-        return TrabajosSer;
+    public Integer getClave() {
+        return clave;
     }
 
-    public void setTrabajosSer(List<TrabajosSer> TrabajosSer) {
-        this.TrabajosSer = TrabajosSer;
+    public void setClave(Integer clave) {
+        this.clave = clave;
     }
 
-
+    public Integer getClvOrden() {
+        return clvOrden;
     }
 
+    public void setClvOrden(Integer clvOrden) {
+        this.clvOrden = clvOrden;
+    }
 
+    public Integer getClvTrabajo() {
+        return clvTrabajo;
+    }
+
+    public void setClvTrabajo(Integer clvTrabajo) {
+        this.clvTrabajo = clvTrabajo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Object getObs() {
+        return obs;
+    }
+
+    public void setObs(Object obs) {
+        this.obs = obs;
+    }
+
+    public Boolean getSeRealiza() {
+        return seRealiza;
+    }
+
+    public void setSeRealiza(Boolean seRealiza) {
+        this.seRealiza = seRealiza;
+    }
+
+}

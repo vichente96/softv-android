@@ -10,20 +10,17 @@ public class Example3 {
     //Lista donde se guarla la informacion que regresa el servidor
     @SerializedName("GetBUSCADetOrdSerListResult")
     @Expose
-    public GetBUSCADetOrdSerListResult getBUSCADetOrdSerListResult = null;
+    private List<GetBUSCADetOrdSerListResult> getBUSCADetOrdSerListResult = null;
 
-    public GetBUSCADetOrdSerListResult getBUSCADetOrdSerListResult() {
-        return  getBUSCADetOrdSerListResult;
+    public List<GetBUSCADetOrdSerListResult> getGetBUSCADetOrdSerListResult() {
+        return getBUSCADetOrdSerListResult;
     }
 
-    public void setGetBUSCADetOrdSerListResult(GetBUSCADetOrdSerListResult getBUSCADetOrdSerListResult) {
+    public void setGetBUSCADetOrdSerListResult(List<GetBUSCADetOrdSerListResult> getBUSCADetOrdSerListResult) {
         this.getBUSCADetOrdSerListResult = getBUSCADetOrdSerListResult;
     }
 
-
 }
-
-
 
 
 
