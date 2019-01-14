@@ -6,12 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class GetBUSCADetOrdSerListResult {
-    @SerializedName("BaseIdUser")
-    @Expose
-    private Integer BaseIdUser;
-    @SerializedName("BaseRemoteIp")
-    @Expose
-    private Object BaseRemoteIp;
     @SerializedName("TrabajosSer")
     @Expose
     private List<TrabajosSer> TrabajosSer = null;
@@ -23,21 +17,6 @@ public class GetBUSCADetOrdSerListResult {
     private Object Accion;
 
 
-    public Integer getBaseIdUser() {
-        return BaseIdUser;
-    }
-
-    public void setBaseIdUser(Integer BaseIdUser) {
-        this.BaseIdUser = BaseIdUser;
-    }
-
-    public Object getBaseRemoteIp() {
-        return BaseRemoteIp;
-    }
-
-    public void setBaseRemoteIp(Object BaseRemoteIp) {
-        this.BaseRemoteIp = BaseRemoteIp;
-    }
 
     public Object getDescripcion() {
         return Descripcion;

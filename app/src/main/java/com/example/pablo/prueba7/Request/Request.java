@@ -49,7 +49,7 @@ public class Request extends AppCompatActivity {
     ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
 
-    //////////////////////////////////////////////
+    ///////////////////Token///////////////////////////
     public void getReviews() {
         try {
             final List<String> lista = new ArrayList();
@@ -60,14 +60,14 @@ public class Request extends AppCompatActivity {
             call.enqueue(new Callback<JsonObject>() {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    //Peticion de datos sobre el Json "LogOnResult"
                     JsonObject userJson = response.body().getAsJsonObject("LogOnResult");
                     Log.d("response2", userJson.get("Usuario").getAsString());
                     Log.d("response3", userJson.get("Token").getAsString());
+                    //Introduccion de datos del request en el Modelo para poder usarlos
                     UserModel user = new UserModel(
                             userJson.get("Usuario").getAsString(),
                             userJson.get("Token").getAsString(),
-                            userJson.get("TipoUser").getAsString(),
-                            userJson.get("IdUsuario").getAsString(),
                             userJson.get("Codigo").getAsString()
                     );
 
@@ -89,7 +89,7 @@ public class Request extends AppCompatActivity {
         }
     }
 
-    //////////////////////////////////////////////
+    //////////////////Clave Tecnico////////////////////////////
 
     public void getClv_tecnico() throws JSONException {
         Service service = services.getTecService();
@@ -97,11 +97,15 @@ public class Request extends AppCompatActivity {
         call.enqueue(new Callback<JSONResponseTecnico>() {
             @Override
             public void onResponse(Call<JSONResponseTecnico> call, Response<JSONResponseTecnico> response) {
+                //Guardar Body del request en JSONResponseTecnico ya que lo regresa como una lista
                 JSONResponseTecnico jsonResponse = response.body();
+                //Pide datos sobre el Json Get_ClvTecnicoResult haciendo referencia al JsonResponse donde se guardo
                 datatec = new ArrayList<List<Get_ClvTecnicoResult>>(asList(jsonResponse.Get_ClvTecnicoResult()));
+                //Se crea un Iterator con la lista para que se pueda recorrer con la informacion
                 Iterator<List<Get_ClvTecnicoResult>> iteData = datatec.iterator();
                 while (iteData.hasNext()) {
                     List<Get_ClvTecnicoResult> data = (List<Get_ClvTecnicoResult>) iteData.next();
+                    //Se recorre la lista y se guarla la informacion en el Modelo
                     for (int i = 0; i < data.size(); i++) {
                         Log.d("response9", data.get(i).clv_tecnico);
                     }
@@ -126,7 +130,7 @@ public class Request extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////////////////
+    ///////////////////Proxima Cita///////////////////////////
 
     public void getProximaCita() {
         Service service = null;
@@ -164,7 +168,7 @@ public class Request extends AppCompatActivity {
             });
     }
 
-    //////////////////////////////////////////////
+    ///////////////////Ordenes///////////////////////////
 
     public void getOrdenes() throws JSONException {
         Service service = services.getOrdSerService();
@@ -209,7 +213,7 @@ public class Request extends AppCompatActivity {
         }
     }
 
-    //////////////////////////////////////////////
+    //////////////////Quejas////////////////////////////
 
 
     public void getQuejas() throws JSONException {
@@ -246,7 +250,7 @@ public class Request extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////////////////
+    /////////////////Lista de Ordenes/////////////////////////////
 
     public void getListOrd() throws JSONException {
 
@@ -283,7 +287,7 @@ public class Request extends AppCompatActivity {
 
     }
 
-    //////////////////////////////////////////////
+    ///////////////////Consuta pantalla ordenes///////////////////////////
 
     public void getDeepCons()throws JSONException {
         Service service = services.getDeepConsService();
@@ -323,7 +327,7 @@ public class Request extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////////////////
+    /////////////////Informacion del Cliente/////////////////////////////
 
     public void getInfoCliente()throws JSONException {
         Service service = services.getInfoClienteService();
@@ -353,7 +357,7 @@ public class Request extends AppCompatActivity {
         });
     }
 
-    //////////////////////////////////////////////
+    //////////////////Servicios////////////////////////////
 
     public void getServicios() throws JSONException {
 

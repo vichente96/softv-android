@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         mViewPager.setOnPageChangeListener(this);
 
 
-        //* Nombre del AcctionBar
         ActionBar actionBar = getSupportActionBar();
 
 

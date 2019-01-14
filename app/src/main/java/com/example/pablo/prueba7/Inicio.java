@@ -46,7 +46,7 @@ public class Inicio extends AppCompatActivity
         trabajo= (TextView)findViewById(R.id.proximotrabajo);
         direccion = (TextView)findViewById(R.id.direccion);
         setSupportActionBar(toolbar);
-
+//Clase error
         Error.Errores(this);
 
 
@@ -89,6 +89,7 @@ public class Inicio extends AppCompatActivity
         if (id == R.id.Inicio) {
             Intent intent1 = new Intent(Inicio.this, Inicio.class);
             startActivity(intent1);
+            //Actualizar la siguente cita y la grafica
             request.getProximaCita();
             try {
                 request.getOrdenes();
@@ -114,13 +115,17 @@ public class Inicio extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //Bloquear el boton de atras
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
         }
         return false;
     }
+
+    //Grafica de pastel
     public static void Grafica(){
 
+        //Propiedades de la grafica
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5, 10, 5, 5);
@@ -129,6 +134,7 @@ public class Inicio extends AppCompatActivity
         pieChart.setHoleColor(android.R.color.white);
         pieChart.setTransparentCircleRadius(1f);
 
+        //Datos de la grafica
         ArrayList<PieEntry> yValues = new ArrayList<>();
         yValues.add(new PieEntry(OE,"OrdenEjecutada"));
         yValues.add(new PieEntry(OP,"OrdenPendiente"));

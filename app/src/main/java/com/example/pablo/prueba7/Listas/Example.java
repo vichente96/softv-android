@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Example {
+    //Lista donde se guarla la informacion que regresa el servidor
 
     @SerializedName("GetDameOrdenesQuejasTotalesResult")
     @Expose

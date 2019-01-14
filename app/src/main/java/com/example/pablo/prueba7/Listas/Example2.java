@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Example2 {
-
+    //Lista donde se guarla la informacion que regresa el servidor
     @SerializedName("GetdameSerDELCliresumenResult")
     @Expose
     private List<GetdameSerDELCliresumenResult> getdameSerDELCliresumenResult = null;

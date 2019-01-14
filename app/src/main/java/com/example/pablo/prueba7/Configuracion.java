@@ -32,6 +32,7 @@ public class Configuracion extends AppCompatActivity
         setSupportActionBar(toolbar);
         CS = (Button)findViewById(R.id.CS);
         Error.Errores(this);
+        //Boton para cerrar sesion
         CS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +87,7 @@ public class Configuracion extends AppCompatActivity
         if (id == R.id.Inicio) {
             Intent intent1 = new Intent(Configuracion.this, Inicio.class);
             startActivity(intent1);
+            //Actualizar la siguente cita y la grafica
            request.getProximaCita();
            try {
                 request.getOrdenes();
@@ -110,6 +112,7 @@ public class Configuracion extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //Bloquear el boton de atras
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
         }

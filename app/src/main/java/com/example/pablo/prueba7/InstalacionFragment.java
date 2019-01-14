@@ -246,20 +246,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     }
 
     public void setLocation(Location loc) {
-        /*Obtener la direccion de la calle a partir de la latitud y la longitud
-        if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
-            try {
-                Geocoder geocoder = new Geocoder(getContext(), Locale.getDefault());
-                List<Address> list = geocoder.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
-                if (!list.isEmpty()) {
-                    Address DirCalle = list.get(0);
-                    direccion.setText("Mi direccion es: \n" + DirCalle.getAddressLine(0));
-                }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }*/
     }
 
     /* Aqui empieza la Clase Localizacion */

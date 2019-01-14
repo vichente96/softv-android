@@ -5,36 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class TrabajosSer {
 
-    @SerializedName("BaseIdUser")
-    @Expose
-    private Integer baseIdUser;
-    @SerializedName("BaseRemoteIp")
-    @Expose
-    private Object baseRemoteIp;
     @SerializedName("Accion")
     @Expose
     private String accion;
-
-
     @SerializedName("Descripcion")
     @Expose
     private String descripcion;
 
-    public Integer getBaseIdUser() {
-        return baseIdUser;
-    }
-
-    public void setBaseIdUser(Integer baseIdUser) {
-        this.baseIdUser = baseIdUser;
-    }
-
-    public Object getBaseRemoteIp() {
-        return baseRemoteIp;
-    }
-
-    public void setBaseRemoteIp(Object baseRemoteIp) {
-        this.baseRemoteIp = baseRemoteIp;
-    }
 
     public String getAccion() {
         return accion;

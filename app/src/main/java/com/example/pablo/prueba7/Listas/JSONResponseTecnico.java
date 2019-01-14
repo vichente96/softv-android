@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class JSONResponseTecnico {
+    //Lista donde se guarla la informacion que regresa el servidor
     @SerializedName("Get_ClvTecnicoResult")
     @Expose
     private List<Get_ClvTecnicoResult> Get_ClvTecnicoResult = null;

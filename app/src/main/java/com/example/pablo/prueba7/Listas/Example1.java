@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class Example1 {
-
+    //Lista donde se guarla la informacion que regresa el servidor
     @SerializedName("GetDameListadoOrdenesAgendadasResult")
     @Expose
     private List<GetDameListadoOrdenesAgendadasResult> getDameListadoOrdenesAgendadasResult = null;

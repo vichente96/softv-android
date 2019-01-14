@@ -52,6 +52,8 @@ public class Login extends AppCompatActivity {
         clave = (TextView)findViewById(R.id.tokenview);
         cvl_usuario= usurio.getText().toString();
         setTitle(null);
+
+        //Creacion de Notificaciones
 /*
         token.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,9 +70,6 @@ public class Login extends AppCompatActivity {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
                 request.getReviews();
@@ -78,14 +77,13 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                   Intent intento = new Intent(Login.this, Inicio.class);
                   startActivity(intento);
-
-
-
                 }
             }
         });
 
     }
+
+    //Notificaciones
     public void noti(){
         createNotificationChannel();
         createNotification();
@@ -112,6 +110,8 @@ public class Login extends AppCompatActivity {
         notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
 
     }
+
+    //Metodo para hacer detener el codigo
     public static void esperar(int segundos){
         try {
             Thread.sleep(segundos * 1000);
