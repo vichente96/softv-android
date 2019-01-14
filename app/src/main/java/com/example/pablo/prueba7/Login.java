@@ -74,11 +74,7 @@ public class Login extends AppCompatActivity {
                user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
 
-                try {
-                    request.getTrabajos();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+             
 
                 if (request.b=true){
 
