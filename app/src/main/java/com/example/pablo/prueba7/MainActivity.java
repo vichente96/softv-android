@@ -34,21 +34,25 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
-        info=(Button)findViewById(R.id.info);
-        layoutAnimado = (RelativeLayout) findViewById(R.id.animado);
-        hzScrollView=(ScrollView)findViewById(R.id.scv);
-        NombreTec = (TextView)findViewById(R.id.tecnico);
-        Contrato = (TextView)findViewById(R.id.contrato);
-        Status = (TextView)findViewById(R.id.status);
-        Empresa = (TextView)findViewById(R.id.infoempresa);
-        Nombre = (TextView)findViewById(R.id.infonombre);
-        Direccion = (TextView)findViewById(R.id.infodireccion);
-        InfoServicios = (TextView)findViewById(R.id.infoservicios);
+        info= findViewById(R.id.info);
+        layoutAnimado= findViewById(R.id.animado);
+        hzScrollView= findViewById(R.id.scv);
+        NombreTec= findViewById(R.id.tecnico);
+        Contrato= findViewById(R.id.contrato);
+        Status= findViewById(R.id.status);
+        Empresa= findViewById(R.id.infoempresa);
+        Nombre= findViewById(R.id.infonombre);
+        Direccion= findViewById(R.id.infodireccion);
+        InfoServicios= findViewById(R.id.infoservicios);
         setTitle(null);
 //* Boton de informacion
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 try {
                     request.getInfoCliente();
                     request.getServicios();

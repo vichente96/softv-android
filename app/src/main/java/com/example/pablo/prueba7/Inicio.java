@@ -93,6 +93,7 @@ public class Inicio extends AppCompatActivity
             request.getProximaCita();
             try {
                 request.getOrdenes();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

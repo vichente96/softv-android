@@ -29,7 +29,7 @@ public class Trabajos extends Fragment{
         View view = inflater.inflate(R.layout.fragment_trabajos,
                 container, false);
         Button accion = view.findViewById(R.id.accion);
-        trabajo1=view.findViewById(R.id.trabajo);
+        trabajo1=view.findViewById(R.id.observacion1);
         accion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

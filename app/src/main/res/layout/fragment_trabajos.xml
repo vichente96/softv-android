@@ -55,7 +55,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/trabajo"
+        android:id="@+id/Descripcion1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="10dp"
@@ -69,7 +69,7 @@
         />
 
     <TextView
-        android:id="@+id/observacion"
+        android:id="@+id/observacion1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/trabajo"

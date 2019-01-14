@@ -7,10 +7,11 @@ public class TrabajosSer {
 
     @SerializedName("Accion")
     @Expose
-    private String accion;
+
+    public static String accion;
     @SerializedName("Descripcion")
     @Expose
-    private String descripcion;
+    public static String descripcion;
 
 
     public String getAccion() {

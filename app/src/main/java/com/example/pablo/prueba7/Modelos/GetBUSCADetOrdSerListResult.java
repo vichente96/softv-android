@@ -6,32 +6,33 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class GetBUSCADetOrdSerListResult {
+
     @SerializedName("TrabajosSer")
     @Expose
-    private List<TrabajosSer> TrabajosSer = null;
+    public static List<TrabajosSer> TrabajosSer = null;
     @SerializedName("Descripcion")
     @Expose
-    private Object Descripcion;
+    public static String Descripcion;
     @SerializedName("Accion")
     @Expose
-    private Object Accion;
+    public static String  Accion;
 
 
 
-    public Object getDescripcion() {
+    public String getDescripcion() {
         return Descripcion;
     }
 
-    public void setDescripcion(Object Descripcion) {
-        this.Descripcion = Descripcion;
+    public void setDescripcion(String descripcion) {
+        this.Descripcion = descripcion;
     }
 
-    public Object getAccion() {
+    public String getAccion() {
         return Accion;
     }
 
-    public void setAccion(Object Accion) {
-        this.Accion = Accion;
+    public void setAccion(String accion) {
+        this.Accion = accion;
     }
 
 

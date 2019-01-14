@@ -9,9 +9,11 @@ import com.example.pablo.prueba7.InstalacionFragment;
 import com.example.pablo.prueba7.Listas.Example;
 import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
+import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
 import com.example.pablo.prueba7.MainActivity;
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
+import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
 import com.example.pablo.prueba7.Modelos.Get_ClvTecnicoResult;
 import com.example.pablo.prueba7.Modelos.GetDameListadoOrdenesAgendadasResult;
 import com.example.pablo.prueba7.Modelos.GetdameSerDELCliresumenResult;
@@ -19,8 +21,10 @@ import com.example.pablo.prueba7.Modelos.InfoClienteModelo;
 import com.example.pablo.prueba7.Modelos.OrdSer;
 import com.example.pablo.prueba7.Modelos.ProximaCitaModel;
 import com.example.pablo.prueba7.Modelos.Queja;
+import com.example.pablo.prueba7.Modelos.TrabajosSer;
 import com.example.pablo.prueba7.Modelos.UserModel;
 import com.example.pablo.prueba7.Services.Services;
+import com.example.pablo.prueba7.Trabajos;
 import com.example.pablo.prueba7.sampledata.Service;
 import com.google.gson.JsonObject;
 
@@ -42,12 +46,13 @@ public class Request extends AppCompatActivity {
 
     public static String clave_tecnico;
 
-   public static boolean b= false;
+    public static boolean b = false;
     ArrayList<List<GetdameSerDELCliresumenResult>> dataclientes;
     ArrayList<List<Queja>> dataque;
     ArrayList<List<OrdSer>> dataord;
     ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
+    ArrayList<List<TrabajosSer>> dataTrabajos;
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
@@ -84,12 +89,14 @@ public class Request extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
                 }
             });
-        }catch (Throwable e){
+        } catch (Throwable e) {
             Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
         }
     }
 
+
     //////////////////Clave Tecnico////////////////////////////
+
 
     public void getClv_tecnico() throws JSONException {
         Service service = services.getTecService();
@@ -140,35 +147,36 @@ public class Request extends AppCompatActivity {
             e.printStackTrace();
         }
         Call<JsonObject> call = service.getDataProx();
-            call.enqueue(new Callback<JsonObject>() {
-                @Override
-                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    JsonObject userJson = response.body().getAsJsonObject("GetDameSiguienteCitaResult");
-                    Log.d("response4", userJson.get("Calle").toString());
-                    ProximaCitaModel user = new ProximaCitaModel(
-                            userJson.get("Calle").getAsString(),
-                            userJson.get("Clave").getAsInt(),
-                            userJson.get("Colonia").getAsString(),
-                            userJson.get("Contrato").getAsString(),
-                            userJson.get("Hora").getAsString(),
-                            userJson.get("NUMERO").getAsString(),
-                            userJson.get("Tipo").getAsString()
-                    );
-                    Inicio.trabajo.setText("Tipo de trabajo: "+user.Tipo +" Contrato: "+user.Contrato+ " Hora: "+user.Hora);
-                    Inicio.direccion.setText("Colonia: " + user.Colonia+" Calle: "+user.Calle);
+        call.enqueue(new Callback<JsonObject>() {
+            @Override
+            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                JsonObject userJson = response.body().getAsJsonObject("GetDameSiguienteCitaResult");
+                Log.d("response4", userJson.get("Calle").toString());
+                ProximaCitaModel user = new ProximaCitaModel(
+                        userJson.get("Calle").getAsString(),
+                        userJson.get("Clave").getAsInt(),
+                        userJson.get("Colonia").getAsString(),
+                        userJson.get("Contrato").getAsString(),
+                        userJson.get("Hora").getAsString(),
+                        userJson.get("NUMERO").getAsString(),
+                        userJson.get("Tipo").getAsString()
+                );
+                Inicio.trabajo.setText("Tipo de trabajo: " + user.Tipo + " Contrato: " + user.Contrato + " Hora: " + user.Hora);
+                Inicio.direccion.setText("Colonia: " + user.Colonia + " Calle: " + user.Calle);
 
 
+            }
 
-                }
-
-                @Override
-                public void onFailure(Call<JsonObject> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
-                }
-            });
+            @Override
+            public void onFailure(Call<JsonObject> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
+
     ///////////////////Ordenes///////////////////////////
+
 
     public void getOrdenes() throws JSONException {
         Service service = services.getOrdSerService();
@@ -181,17 +189,17 @@ public class Request extends AppCompatActivity {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
                 Example jsonResponse = response.body();
-                dataord = new ArrayList<List<OrdSer>>( asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getOrdSer()));
+                dataord = new ArrayList<List<OrdSer>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getOrdSer()));
                 Iterator<List<OrdSer>> itData = dataord.iterator();
-                while (itData.hasNext()){
+                while (itData.hasNext()) {
                     List<OrdSer> dat = (List<OrdSer>) itData.next();
-                    for (int i=0; i<dat.size(); i++) {
+                    for (int i = 0; i < dat.size(); i++) {
                         Log.d("response9", dat.get(i).getStatus());
                         Log.d("response10", String.valueOf(dat.get(i).getTotal()));
                     }
-                    Inicio.OE =dat.get(0).getTotal();
-                    Inicio.OP=dat.get(1).getTotal();
-                    Inicio.OV=dat.get(2).getTotal();
+                    Inicio.OE = dat.get(0).getTotal();
+                    Inicio.OP = dat.get(1).getTotal();
+                    Inicio.OV = dat.get(2).getTotal();
                     Inicio.Grafica();
                 }
 
@@ -213,8 +221,8 @@ public class Request extends AppCompatActivity {
         }
     }
 
-    //////////////////Quejas////////////////////////////
 
+    //////////////////Quejas////////////////////////////
 
     public void getQuejas() throws JSONException {
         Service service = services.getOrdSerService();
@@ -226,21 +234,22 @@ public class Request extends AppCompatActivity {
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
                 Example jsonResponse = response.body();
-                dataque = new ArrayList<List<Queja>>( asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getQueja()));
+                dataque = new ArrayList<List<Queja>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getQueja()));
                 Iterator<List<Queja>> itData = dataque.iterator();
-                while (itData.hasNext()){
+                while (itData.hasNext()) {
                     List<Queja> dat = (List<Queja>) itData.next();
-                    for (int i=0; i<dat.size(); i++) {
+                    for (int i = 0; i < dat.size(); i++) {
                         Log.d("response7", dat.get(i).getStatus());
                         Log.d("response8", String.valueOf(dat.get(i).getTotal()));
                     }
-                    Inicio.RE=dat.get(0).getTotal();
-                    Inicio.RP=dat.get(1).getTotal();
-                    Inicio.REP=dat.get(2).getTotal();
-                    Inicio.RV=dat.get(3).getTotal();
+                    Inicio.RE = dat.get(0).getTotal();
+                    Inicio.RP = dat.get(1).getTotal();
+                    Inicio.REP = dat.get(2).getTotal();
+                    Inicio.RV = dat.get(3).getTotal();
                 }
                 Inicio.Grafica();
             }
+
             @Override
             public void onFailure(Call<Example> call, Throwable t) {
 
@@ -251,6 +260,7 @@ public class Request extends AppCompatActivity {
     }
 
     /////////////////Lista de Ordenes/////////////////////////////
+
 
     public void getListOrd() throws JSONException {
 
@@ -265,9 +275,9 @@ public class Request extends AppCompatActivity {
                 Example1 jsonResponse = response.body();
                 dataagenda = new ArrayList<List<GetDameListadoOrdenesAgendadasResult>>(asList(jsonResponse.getGetDameListadoOrdenesAgendadasResult()));
                 Iterator<List<GetDameListadoOrdenesAgendadasResult>> itData = dataagenda.iterator();
-                while (itData.hasNext()){
+                while (itData.hasNext()) {
                     List<GetDameListadoOrdenesAgendadasResult> dat = (List<GetDameListadoOrdenesAgendadasResult>) itData.next();
-                    for (int i=0; i<dat.size(); i++) {
+                    for (int i = 0; i < dat.size(); i++) {
                         Log.d("Clave de orden", String.valueOf(dat.get(i).getClvOrden()));
                         Log.d("Contrato", dat.get(i).getContrato());
                         Log.d("Nombre", dat.get(i).getNombre());
@@ -286,10 +296,10 @@ public class Request extends AppCompatActivity {
         });
 
     }
-
-    ///////////////////Consuta pantalla ordenes///////////////////////////
+ ///////////////////Consuta pantalla ordenes///////////////////////////
 
     public void getDeepCons()throws JSONException {
+
         Service service = services.getDeepConsService();
         Call<JsonObject> call = service.getDataDeepCons();
         call.enqueue(new Callback<JsonObject>() {
@@ -306,16 +316,16 @@ public class Request extends AppCompatActivity {
                         userJson.get("Clv_Orden").getAsString()
                 );
                 MainActivity.NombreTec.setText(DeepConsModel.NombreTecnico);
-                if(DeepConsModel.STATUS.equals("E")){
+                if (DeepConsModel.STATUS.equals("E")) {
                     MainActivity.Status.setText("Ejecutada");
 
-                }else if(DeepConsModel.STATUS.equals("P")){
+                } else if (DeepConsModel.STATUS.equals("P")) {
                     MainActivity.Status.setText("Pendiente");
 
-                }else if(DeepConsModel.STATUS.equals("V")){
+                } else if (DeepConsModel.STATUS.equals("V")) {
                     MainActivity.Status.setText("En Visita");
                 }
-                MainActivity.Contrato.setText( String.valueOf(DeepConsModel.Contrato));
+                MainActivity.Contrato.setText(String.valueOf(DeepConsModel.Contrato));
                 InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
 
             }
@@ -329,7 +339,8 @@ public class Request extends AppCompatActivity {
 
     /////////////////Informacion del Cliente/////////////////////////////
 
-    public void getInfoCliente()throws JSONException {
+    public void getInfoCliente() throws JSONException {
+
         Service service = services.getInfoClienteService();
         Call<JsonObject> call = service.getDataInfoCliente();
         call.enqueue(new Callback<JsonObject>() {
@@ -346,7 +357,7 @@ public class Request extends AppCompatActivity {
                 );
 
                 MainActivity.Empresa.setText(InfoClienteModelo.Compania);
-                MainActivity.Direccion.setText(InfoClienteModelo.CALLE+" "+InfoClienteModelo.NUMERO+" "+InfoClienteModelo.COLONIA);
+                MainActivity.Direccion.setText(InfoClienteModelo.CALLE + " " + InfoClienteModelo.NUMERO + " " + InfoClienteModelo.COLONIA);
                 MainActivity.Nombre.setText(InfoClienteModelo.NOMBRE);
             }
 
@@ -357,7 +368,6 @@ public class Request extends AppCompatActivity {
         });
     }
 
-    //////////////////Servicios////////////////////////////
 
     public void getServicios() throws JSONException {
 
@@ -371,13 +381,13 @@ public class Request extends AppCompatActivity {
                 Example2 jsonResponse = response.body();
                 dataclientes = new ArrayList<List<GetdameSerDELCliresumenResult>>(asList(jsonResponse.getdameSerDELCliresumenResult()));
                 Iterator<List<GetdameSerDELCliresumenResult>> itData = dataclientes.iterator();
-                while (itData.hasNext()){
+                while (itData.hasNext()) {
                     List<GetdameSerDELCliresumenResult> dat = (List<GetdameSerDELCliresumenResult>) itData.next();
-                    for (int i=0; i<dat.size(); i++) {
+                    for (int i = 0; i < dat.size(); i++) {
                         Log.d("Resumen", dat.get(i).getResumen());
                     }
-                    MainActivity.InfoServicios.setText("    "+dat.get(0).getResumen()+'\n'+"    "+dat.get(1).getResumen()+'\n'+
-                            dat.get(2).getResumen()+'\n'+ dat.get(3).getResumen()+'\n'+dat.get(4).getResumen());
+                    MainActivity.InfoServicios.setText("    " + dat.get(0).getResumen() + '\n' + "    " + dat.get(1).getResumen() + '\n' +
+                            dat.get(2).getResumen() + '\n' + dat.get(3).getResumen() + '\n' + dat.get(4).getResumen());
                 }
             }
 
@@ -385,9 +395,40 @@ public class Request extends AppCompatActivity {
             public void onFailure(Call<Example2> call, Throwable t) {
 
             }
+
+
+        });
+    }
+/////////////////////////////informacion trabajos//////////////////////////////
+
+
+    public void getTrabajos() throws JSONException {
+        Service service = services.getTrabajoService();
+        Call<Example3> call = service.getDataTrabajos();
+        call.enqueue(new Callback<Example3>() {
+            @Override
+            public void onResponse(Call<Example3> call, Response<Example3> response) {
+                Example3 jsonResponse = response.body();
+                dataTrabajos =  new ArrayList<List<TrabajosSer>>(asList(jsonResponse.getBUSCADetOrdSerListResult.getTrabajosSer()));
+                Iterator<List<TrabajosSer>> itData = dataTrabajos.iterator();
+                while (itData.hasNext()) {
+                    List<TrabajosSer> dat = (List<TrabajosSer>) itData.next();
+                    for (int i = 0; i < dat.size(); i++) {
+                        Log.d("response11", dat.get(i).getDescripcion());
+
+                    }
+                    Trabajos.trabajo1.setText("    "+ dat.get(0).getDescripcion());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Example3> call, Throwable t) {
+
+            }
+
         });
 
     }
-
 
 }

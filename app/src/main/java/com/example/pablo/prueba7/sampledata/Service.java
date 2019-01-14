@@ -5,6 +5,7 @@ package com.example.pablo.prueba7.sampledata;
 import com.example.pablo.prueba7.Listas.Example;
 import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
+import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
 import com.google.gson.JsonObject;
 
@@ -29,6 +30,8 @@ public interface Service {
     Call<JsonObject> getDataInfoCliente();
     @POST(Constants.URL_GET_SERVICIOS)
     Call<Example2> getDataServicios();
+    @POST(Constants.URL_GET_ORDENES)
+    Call<Example3> getDataTrabajos();
 
 
 }

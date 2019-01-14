@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.pablo.prueba7.Request.Request;
 
+import org.json.JSONException;
 
 
 public class Login extends AppCompatActivity {
@@ -73,7 +74,9 @@ public class Login extends AppCompatActivity {
                user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
                 request.getReviews();
+
                 if (request.b=true){
+
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
                   Intent intento = new Intent(Login.this, Inicio.class);
                   startActivity(intento);

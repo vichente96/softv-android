@@ -33,7 +33,5 @@ public class UserModel {
         return Codigo;
     }
 
-    public void setCodigo(String codigo) {
-        Codigo = codigo;
-    }
+    public void setCodigo(String codigo) { Codigo = codigo; }
 }

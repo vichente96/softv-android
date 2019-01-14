@@ -1,7 +1,10 @@
 package com.example.pablo.prueba7.Services;
 
+import android.content.IntentFilter;
+
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
 import com.example.pablo.prueba7.Login;
+import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
 import com.example.pablo.prueba7.Modelos.UserModel;
 import com.example.pablo.prueba7.sampledata.Constants;
 import com.example.pablo.prueba7.sampledata.Service;
@@ -299,6 +302,29 @@ public class Services {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        return retrofit.create(Service.class);
+    }
+    public Service getTrabajoService()throws JSONException{
+        JSONObject jsonObject= new JSONObject();
+        jsonObject.put( "Clv_Orden",41094);
+        MediaType JSON = MediaType.parse("application/json; charse=utf-8");
+        final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
+        final OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+            @Override
+            public okhttp3.Response intercept(Chain chain) throws IOException {
+                Request newRequest = chain.request().newBuilder()
+                        .addHeader("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IlNJU1RFIiwibmJmIjoxNTQ3Mzk1OTYxLCJleHAiOjE1NDg1OTU5NjEsImlhdCI6MTU0NzM5NTk2MX0.91Fd5g9oarPSEd_XOw50gwz5upNB7ud7V-rDcxhZlFU")
+                        .addHeader("Content-Type", "application/json")
+                        .post(body)
+                        .build();
+                return chain.proceed(newRequest);
+                }
+        }).build();
+        Retrofit retrofit= new Retrofit.Builder()
+                .baseUrl(Constants.NEW_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         return retrofit.create(Service.class);
     }
 
