@@ -47,7 +47,7 @@ public class Orden extends AppCompatActivity
                 startActivity(intento1);
                 try {
                    request.getDeepCons();
-                   request.getTrabajos();
+
 
 
                 } catch (JSONException e) {

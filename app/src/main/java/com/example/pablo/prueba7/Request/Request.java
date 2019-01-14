@@ -417,7 +417,6 @@ public class Request extends AppCompatActivity {
                         Log.d("response11", dat.get(i).getDescripcion());
 
                     }
-                    Trabajos.trabajo1.setText("    "+ dat.get(0).getDescripcion());
                 }
 
             }
