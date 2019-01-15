@@ -458,6 +458,7 @@ public class Request extends AppCompatActivity {
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                 InstalacionFragment.TecSec.setAdapter(adapter);
+                InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
             }
 
             }

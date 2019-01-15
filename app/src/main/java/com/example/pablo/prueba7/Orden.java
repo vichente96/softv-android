@@ -48,8 +48,6 @@ public class Orden extends AppCompatActivity
                 try {
                    request.getDeepCons();
 
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
