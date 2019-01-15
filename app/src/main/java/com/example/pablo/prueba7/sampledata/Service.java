@@ -7,6 +7,7 @@ import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
+import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -32,6 +33,8 @@ public interface Service {
     Call<Example2> getDataServicios();
     @POST(Constants.URL_GET_ORDENES)
     Call<Example3> getDataTrabajos();
+    @POST(Constants.URL_GET_TEC_SEC)
+    Call<JSONTecSec> getDataTecSec();
 
 
 }

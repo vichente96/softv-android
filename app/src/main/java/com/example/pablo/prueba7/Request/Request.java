@@ -1,7 +1,9 @@
 package com.example.pablo.prueba7.Request;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.pablo.prueba7.Inicio;
@@ -11,9 +13,11 @@ import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
+import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.example.pablo.prueba7.MainActivity;
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
 import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
+import com.example.pablo.prueba7.Modelos.GetMuestraRelOrdenesTecnicosListResult;
 import com.example.pablo.prueba7.Modelos.Get_ClvTecnicoResult;
 import com.example.pablo.prueba7.Modelos.GetDameListadoOrdenesAgendadasResult;
 import com.example.pablo.prueba7.Modelos.GetdameSerDELCliresumenResult;
@@ -30,6 +34,7 @@ import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,6 +42,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.util.Arrays.asList;
 
@@ -47,12 +53,15 @@ public class Request extends AppCompatActivity {
     public static String clave_tecnico;
 
     public static boolean b = false;
+
+    public static String datos[];
     ArrayList<List<GetdameSerDELCliresumenResult>> dataclientes;
     ArrayList<List<Queja>> dataque;
     ArrayList<List<OrdSer>> dataord;
     ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
     ArrayList<List<GetBUSCADetOrdSerListResult>> dataTrabajos;
+    ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>> dataTecSec;
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
@@ -86,11 +95,11 @@ public class Request extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<JsonObject> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+
                 }
             });
         } catch (Throwable e) {
-            Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -169,7 +178,7 @@ public class Request extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -332,7 +341,7 @@ public class Request extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -363,7 +372,7 @@ public class Request extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "No existe conexion", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -428,6 +437,36 @@ public class Request extends AppCompatActivity {
 
         });
 
+    }
+
+    public void getTecSec(final Context context) throws JSONException{
+
+       Service service = services.getTecSecService();
+        Call<JSONTecSec> call = service.getDataTecSec();
+        call.enqueue(new Callback<JSONTecSec>() {
+            @Override
+            public void onResponse(Call<JSONTecSec> call, Response<JSONTecSec> response) {
+                JSONTecSec jsonResponse = response.body();
+                dataTecSec = new ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>>(asList(jsonResponse.GetMuestraRelOrdenesTecnicosListResult()));
+            Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = dataTecSec.iterator();
+            while (itdata.hasNext()){
+                List<GetMuestraRelOrdenesTecnicosListResult> dat = itdata.next();
+                datos = new String[dat.size()];
+                for(int i=0; i< dat.size(); i++){
+                    Log.d("response12", dat.get(i).getNOMBRE());
+                    datos[i] = dat.get(i).getNOMBRE();
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                InstalacionFragment.TecSec.setAdapter(adapter);
+            }
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONTecSec> call, Throwable t) {
+
+            }
+        });
     }
 
 }

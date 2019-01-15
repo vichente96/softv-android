@@ -9,9 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.pablo.prueba7.Request.Request;
@@ -19,6 +21,7 @@ import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
 
+import static com.example.pablo.prueba7.Request.Request.datos;
 
 
 public class MainActivity extends AppCompatActivity implements ActionBar.TabListener, ViewPager.OnPageChangeListener {
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
     Button info;
     RelativeLayout layoutAnimado;
     public static TextView NombreTec, Contrato, Status, Empresa, Nombre, Direccion, InfoServicios;
+
     Request request = new Request();
 
 
@@ -45,17 +49,20 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Direccion= findViewById(R.id.infodireccion);
         InfoServicios= findViewById(R.id.infoservicios);
         setTitle(null);
+        try {
+            request.getTecSec(this);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 //* Boton de informacion
+
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
                 try {
                     request.getInfoCliente();
                     request.getServicios();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

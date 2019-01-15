@@ -21,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -38,6 +39,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     private View contenedorCorporativo;
     TextView coordenadas, direccion;
     public static TextView Obs;
+    public static Spinner TecSec;
 
     RadioButton btn1, bt2;
 
@@ -70,7 +72,7 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
         btn1 = view.findViewById(R.id.ejutada);
         bt2 = view.findViewById(R.id.visitada);
         /////////////////////////////////////////////////////
-
+        TecSec = view.findViewById(R.id.tecnicosec);
         ///////////////////GPS//////////////////////////////
         coordenadas = view.findViewById(R.id.txtCoordenadas);
 

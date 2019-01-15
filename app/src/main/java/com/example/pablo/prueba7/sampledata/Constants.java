@@ -12,6 +12,7 @@ public class Constants {
     public static final String URL_GET_INFO_CLIENTE="BUSCLIPORCONTRATO_OrdSer/GetDeepBUSCLIPORCONTRATO_OrdSer";
     public static final String URL_GET_SERVICIOS="AplicacionMovil/GetdameSerDELCliresumen";
     public static final String URL_GET_ORDENES = "BUSCADetOrdSer/GetBUSCADetOrdSerList";
+    public static final String URL_GET_TEC_SEC ="MuestraRelOrdenesTecnicos/GetMuestraRelOrdenesTecnicosList";
 
 
 

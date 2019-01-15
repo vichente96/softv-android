@@ -76,7 +76,6 @@ public class Login extends AppCompatActivity {
                 request.getReviews();
 
 
-
                 if (request.b=true){
 
                     Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
