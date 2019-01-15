@@ -51,7 +51,7 @@ public class Request extends AppCompatActivity {
 
 
     public static String clave_tecnico;
-
+String a="Seleccione tecnico secundario";
     public static boolean b = false;
 
     public static String datos[];
@@ -451,10 +451,13 @@ public class Request extends AppCompatActivity {
             Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = dataTecSec.iterator();
             while (itdata.hasNext()){
                 List<GetMuestraRelOrdenesTecnicosListResult> dat = itdata.next();
-                datos = new String[dat.size()];
+                datos = new String[dat.size()+1];
+                int j=1;
+                datos[0] = a;
                 for(int i=0; i< dat.size(); i++){
                     Log.d("response12", dat.get(i).getNOMBRE());
-                    datos[i] = dat.get(i).getNOMBRE();
+                    datos[j] = dat.get(i).getNOMBRE();
+                    j=j+1;
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                 InstalacionFragment.TecSec.setAdapter(adapter);

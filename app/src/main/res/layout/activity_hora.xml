@@ -225,27 +225,23 @@
 
             <Spinner
                 android:id="@+id/tecnicosec"
-                android:layout_width="127dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="249dp"
-                android:layout_marginTop="290dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="310dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="330dp"
+                android:layout_marginTop="350dp"
                 android:textSize="20dp"
                 android:text="Observaciones:"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="355dp"
+                android:layout_marginTop="375dp"
                 android:textSize="20dp"
                 android:id="@+id/obs"
                 />
