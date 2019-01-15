@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="240dp"
         android:layout_marginTop="60dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -47,50 +47,48 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="320dp"
+        android:layout_marginStart="330dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="1dp"
         android:text="Recibi"
         android:textSize="18dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/Descripcion1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:text="DESCO"
-        android:textSize="18dp"
         android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
-        />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
-    <TextView
-        android:id="@+id/observacion1"
+
+
+    />
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/trabajo"
-        android:textSize="14dp"
-        android:text="Desconecion del servicio principal"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="125dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/observacion1"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_below="@+id/trabajo"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:text="First line\nNext line"
+            android:textColor="#000"
         />
+    </LinearLayout>
 
     <Button
         android:id="@+id/accion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="230dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="240dp"
         android:layout_marginLeft="3dp"
+        android:layout_marginTop="100dp"
         android:layout_toRightOf="@+id/observacion"
         android:text="accion"
-        android:textSize="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"/>
+        android:textSize="10dp" />
 
     <CheckBox
         android:id="@+id/recibi"
@@ -99,7 +97,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="106dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="330dp"
+        android:layout_marginStart="340dp"
         android:layout_marginEnd="10dp"
         />
 

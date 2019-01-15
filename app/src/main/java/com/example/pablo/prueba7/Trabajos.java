@@ -16,6 +16,7 @@ import android.widget.TextView;
  */
 public class Trabajos extends Fragment{
     public static TextView trabajo1;
+    public static Button accion1;
 
 
     public Trabajos() {
@@ -30,6 +31,9 @@ public class Trabajos extends Fragment{
                 container, false);
         Button accion = view.findViewById(R.id.accion);
         trabajo1=view.findViewById(R.id.observacion1);
+        accion1=view.findViewById(R.id.accion);
+
+
         accion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

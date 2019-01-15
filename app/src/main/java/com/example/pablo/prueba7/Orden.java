@@ -46,7 +46,13 @@ public class Orden extends AppCompatActivity
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
                 try {
+                    request.getTrabajos();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                try {
                    request.getDeepCons();
+
 
 
 

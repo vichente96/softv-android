@@ -424,8 +424,12 @@ public class Request extends AppCompatActivity {
                     List<GetBUSCADetOrdSerListResult> dat = (List<GetBUSCADetOrdSerListResult>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
                         Log.d("response11", dat.get(i).getDescripcion());
+                        Log.d("response13" ,dat.get(i).getAccion());
 
                     }
+                    Trabajos.trabajo1.setText("    " + dat.get(0).getDescripcion() );
+                    Trabajos.accion1.setText("    " + dat.get(0).getAccion());
+
                 }
 
             }
