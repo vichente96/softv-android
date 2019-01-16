@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el Aparato"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:id="@+id/qwe"
+        />
+<RelativeLayout
+    android:id="@+id/ads"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignTop="@+id/qwe"
+    android:layout_marginTop="50dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aparato a Cambiar"
+        android:textSize="25dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aparato:"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        />
+    <Spinner
+        android:id="@+id/aparato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado del Aparato:"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        />
+    <Spinner
+        android:id="@+id/estadoaparato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        />
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ads"
+        android:layout_marginTop="200dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aparato a Asignar"
+            android:textSize="25dp"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/aa"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo Aparato:"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            />
+        <Spinner
+            android:id="@+id/tipo_aparato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="130dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aa"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aparato:"
+            android:textSize="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            />
+        <Spinner
+            android:id="@+id/aparatoAsignar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

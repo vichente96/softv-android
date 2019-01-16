@@ -12,12 +12,20 @@ import com.example.pablo.prueba7.Listas.Example;
 import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
+import com.example.pablo.prueba7.Listas.JSONApaTipDis;
+import com.example.pablo.prueba7.Listas.JSONApaTipo;
+import com.example.pablo.prueba7.Listas.JSONCLIAPA;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
+import com.example.pablo.prueba7.Listas.JSONStatusApa;
 import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.example.pablo.prueba7.MainActivity;
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
 import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
+import com.example.pablo.prueba7.Modelos.GetListAparatosDisponiblesByIdArticuloResult;
+import com.example.pablo.prueba7.Modelos.GetListClienteAparatosResult;
+import com.example.pablo.prueba7.Modelos.GetListTipoAparatosByIdArticuloResult;
 import com.example.pablo.prueba7.Modelos.GetMuestraRelOrdenesTecnicosListResult;
+import com.example.pablo.prueba7.Modelos.GetSP_StatusAparatosListResult;
 import com.example.pablo.prueba7.Modelos.Get_ClvTecnicoResult;
 import com.example.pablo.prueba7.Modelos.GetDameListadoOrdenesAgendadasResult;
 import com.example.pablo.prueba7.Modelos.GetdameSerDELCliresumenResult;
@@ -62,6 +70,10 @@ String a="Seleccione tecnico secundario";
     ArrayList<List<Get_ClvTecnicoResult>> datatec;
     ArrayList<List<GetBUSCADetOrdSerListResult>> dataTrabajos;
     ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>> dataTecSec;
+    ArrayList<List<GetListClienteAparatosResult>> dataCliApa;
+    ArrayList<List<GetSP_StatusAparatosListResult>> dataStaApa;
+    ArrayList<List<GetListTipoAparatosByIdArticuloResult>> dataApaTipo;
+    ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>> dataApaTipDis;
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
@@ -86,11 +98,8 @@ String a="Seleccione tecnico secundario";
                     );
 
                     b = true;
-                    try {
                         getClv_tecnico();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+
                 }
 
                 @Override
@@ -107,8 +116,13 @@ String a="Seleccione tecnico secundario";
     //////////////////Clave Tecnico////////////////////////////
 
 
-    public void getClv_tecnico() throws JSONException {
-        Service service = services.getTecService();
+    public void getClv_tecnico() {
+        Service service = null;
+        try {
+            service = services.getTecService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<JSONResponseTecnico> call = service.getDataTec();
         call.enqueue(new Callback<JSONResponseTecnico>() {
             @Override
@@ -130,12 +144,8 @@ String a="Seleccione tecnico secundario";
                 }
 
                 getProximaCita();
-
-                try {
                     getOrdenes();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
 
             }
 
@@ -187,8 +197,13 @@ String a="Seleccione tecnico secundario";
     ///////////////////Ordenes///////////////////////////
 
 
-    public void getOrdenes() throws JSONException {
-        Service service = services.getOrdSerService();
+    public void getOrdenes()  {
+        Service service = null;
+        try {
+            service = services.getOrdSerService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<Example> call = service.getDataOrdenes();
 
 
@@ -222,19 +237,20 @@ String a="Seleccione tecnico secundario";
 
         });
 
-        try {
             getQuejas();
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
 
     //////////////////Quejas////////////////////////////
 
-    public void getQuejas() throws JSONException {
-        Service service = services.getOrdSerService();
+    public void getQuejas()  {
+        Service service = null;
+        try {
+            service = services.getOrdSerService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<Example> call = service.getDataOrdenes();
 
         call.enqueue(new Callback<Example>() {
@@ -271,9 +287,14 @@ String a="Seleccione tecnico secundario";
     /////////////////Lista de Ordenes/////////////////////////////
 
 
-    public void getListOrd() throws JSONException {
+    public void getListOrd()  {
 
-        Service service = services.getListOrdService();
+        Service service = null;
+        try {
+            service = services.getListOrdService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         Call<Example1> call = service.getDataListOrd();
         call.enqueue(new Callback<Example1>() {
@@ -307,9 +328,14 @@ String a="Seleccione tecnico secundario";
     }
  ///////////////////Consuta pantalla ordenes///////////////////////////
 
-    public void getDeepCons()throws JSONException {
+    public void getDeepCons() {
 
-        Service service = services.getDeepConsService();
+        Service service = null;
+        try {
+            service = services.getDeepConsService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<JsonObject> call = service.getDataDeepCons();
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -348,9 +374,14 @@ String a="Seleccione tecnico secundario";
 
     /////////////////Informacion del Cliente/////////////////////////////
 
-    public void getInfoCliente() throws JSONException {
+    public void getInfoCliente()  {
 
-        Service service = services.getInfoClienteService();
+        Service service = null;
+        try {
+            service = services.getInfoClienteService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<JsonObject> call = service.getDataInfoCliente();
         call.enqueue(new Callback<JsonObject>() {
             @Override
@@ -378,9 +409,14 @@ String a="Seleccione tecnico secundario";
     }
 
 
-    public void getServicios() throws JSONException {
+    public void getServicios()  {
 
-        Service service = services.getServiciosService();
+        Service service = null;
+        try {
+            service = services.getServiciosService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<Example2> call = service.getDataServicios();
         call.enqueue(new Callback<Example2>() {
 
@@ -411,8 +447,13 @@ String a="Seleccione tecnico secundario";
 /////////////////////////////informacion trabajos//////////////////////////////
 
 
-    public void getTrabajos() throws JSONException {
-        Service service = services.getTrabajoService();
+    public void getTrabajos()  {
+        Service service = null;
+        try {
+            service = services.getTrabajoService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<Example3> call = service.getDataTrabajos();
         call.enqueue(new Callback<Example3>() {
             @Override
@@ -439,30 +480,40 @@ String a="Seleccione tecnico secundario";
 
     }
 
-    public void getTecSec(final Context context) throws JSONException{
+    public void getTecSec(final Context context){
 
-       Service service = services.getTecSecService();
+        Service service = null;
+        try {
+            service = services.getTecSecService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Call<JSONTecSec> call = service.getDataTecSec();
         call.enqueue(new Callback<JSONTecSec>() {
             @Override
             public void onResponse(Call<JSONTecSec> call, Response<JSONTecSec> response) {
                 JSONTecSec jsonResponse = response.body();
                 dataTecSec = new ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>>(asList(jsonResponse.GetMuestraRelOrdenesTecnicosListResult()));
-            Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = dataTecSec.iterator();
-            while (itdata.hasNext()){
-                List<GetMuestraRelOrdenesTecnicosListResult> dat = itdata.next();
-                datos = new String[dat.size()+1];
-                int j=1;
-                datos[0] = a;
-                for(int i=0; i< dat.size(); i++){
-                    Log.d("response12", dat.get(i).getNOMBRE());
-                    datos[j] = dat.get(i).getNOMBRE();
-                    j=j+1;
+                Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = dataTecSec.iterator();
+                while (itdata.hasNext()){
+                    List<GetMuestraRelOrdenesTecnicosListResult> dat = itdata.next();
+                    datos = new String[dat.size()+1];
+                    int j=1;
+                    datos[0] = a;
+                    for(int i=0; i< dat.size(); i++){
+                        Log.d("responsetecsec", dat.get(i).getNOMBRE());
+                        datos[j] = dat.get(i).getNOMBRE();
+                        j=j+1;
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                    InstalacionFragment.TecSec.setAdapter(adapter);
+                    InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
-                InstalacionFragment.TecSec.setAdapter(adapter);
-                InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
-            }
+
+                    getCliApa();
+                    getStatusApa();
+                    getApaTipo();
+                    getApaTipDis();
 
             }
 
@@ -472,5 +523,131 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
+////////
+    public void getCliApa() {
+
+        Service service = null;
+        try {
+            service = services.getCliApaService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Call<JSONCLIAPA> call = service.getDataCliApa();
+        call.enqueue(new Callback<JSONCLIAPA>() {
+
+
+            @Override
+            public void onResponse(Call<JSONCLIAPA> call, Response<JSONCLIAPA> response) {
+                JSONCLIAPA jsonResponse = response.body();
+                dataCliApa = new ArrayList<List<GetListClienteAparatosResult>>(asList(jsonResponse.GetListClienteAparatosResult()));
+                Iterator<List<GetListClienteAparatosResult>> itdata = dataCliApa.iterator();
+                while (itdata.hasNext()){
+                    List<GetListClienteAparatosResult> dat = itdata.next();
+                    for (int i=0; i<dat.size(); i++){
+                        Log.d("responseAparatosCliente", String.valueOf(dat.get(i).Descripcion));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JSONCLIAPA> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getStatusApa() {
+
+        Service service = services.getStatusApa();
+        Call<JSONStatusApa> call = service.getDataStatusApa();
+        call.enqueue(new Callback<JSONStatusApa>() {
+            @Override
+            public void onResponse(Call<JSONStatusApa> call, Response<JSONStatusApa> response) {
+                JSONStatusApa jsonResponse = response.body();
+                dataStaApa = new ArrayList<List<GetSP_StatusAparatosListResult>>(asList(jsonResponse.GetSP_StatusAparatosListResult()));
+                Iterator<List<GetSP_StatusAparatosListResult>> itdata = dataStaApa.iterator();
+                while (itdata.hasNext()){
+                    List<GetSP_StatusAparatosListResult> dat = itdata.next();
+                    for(int i=0; i< dat.size(); i++){
+                        Log.d("responseStatus", dat.get(i).Concepto);
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JSONStatusApa> call, Throwable t) {
+
+            }
+
+        });
+    }
+
+    public void getApaTipo() {
+
+        Service service = null;
+        try {
+            service = services.getApaTipoService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Call<JSONApaTipo> call = service.getDataApaTipo();
+        call.enqueue(new Callback<JSONApaTipo>() {
+
+
+            @Override
+            public void onResponse(Call<JSONApaTipo> call, Response<JSONApaTipo> response) {
+                JSONApaTipo jsonResponse = response.body();
+                dataApaTipo = new ArrayList<List<GetListTipoAparatosByIdArticuloResult>>(asList(jsonResponse.GetListTipoAparatosByIdArticuloResult()));
+                Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = dataApaTipo.iterator();
+                while (itdata.hasNext()){
+                    List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
+                    for (int i=0; i<dat.size(); i++){
+                        Log.d("responseIdArticulo", String.valueOf(dat.get(i).IdArticulo));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JSONApaTipo> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void getApaTipDis() {
+
+        Service service = null;
+        try {
+            service = services.getApaTipDisService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Call<JSONApaTipDis> call = service.getDataApaTipDis();
+        call.enqueue(new Callback<JSONApaTipDis>() {
+
+
+            @Override
+            public void onResponse(Call<JSONApaTipDis> call, Response<JSONApaTipDis> response) {
+                JSONApaTipDis jsonResponse = response.body();
+                dataApaTipDis = new ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>>(asList(jsonResponse.GetListAparatosDisponiblesByIdArticuloResult()));
+                Iterator<List<GetListAparatosDisponiblesByIdArticuloResult>> itdata = dataApaTipDis.iterator();
+                while (itdata.hasNext()){
+                    List<GetListAparatosDisponiblesByIdArticuloResult> dat = itdata.next();
+                    for (int i=0; i<dat.size(); i++){
+                        Log.d("responseClv_aparato", String.valueOf(dat.get(i).Clv_Aparato));
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JSONApaTipDis> call, Throwable t) {
+
+            }
+        });
+    }
+
 
 }

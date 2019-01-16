@@ -46,12 +46,9 @@ public class Orden extends AppCompatActivity
 
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
-                try {
+
                    request.getDeepCons();
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
 
             }
@@ -105,11 +102,9 @@ public class Orden extends AppCompatActivity
             startActivity(intent1);
             //Actualizar la siguente cita y la grafica
            request.getProximaCita();
-            try {
+
                 request.getOrdenes();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Orden.this, Orden.class);
             startActivity(intent1);

@@ -13,7 +13,10 @@ public class Constants {
     public static final String URL_GET_SERVICIOS="AplicacionMovil/GetdameSerDELCliresumen";
     public static final String URL_GET_ORDENES = "BUSCADetOrdSer/GetBUSCADetOrdSerList";
     public static final String URL_GET_TEC_SEC ="MuestraRelOrdenesTecnicos/GetMuestraRelOrdenesTecnicosList";
-
+    public static final String URL_GET_CLI_APA = "MuestraAparatosDisponibles/GetListClienteAparatos";
+    public static final String URL_GET_STATUS = "MuestraAparatosDisponibles/GetSP_StatusAparatosList";
+    public static final String URL_GET_APA_TIPO = "MuestraAparatosDisponibles/GetListTipoAparatosByIdArticulo";
+    public static final String URL_GET_APA_TIP_DIS = "MuestraAparatosDisponibles/GetListAparatosDisponiblesByIdArticulo";
 
 
 }

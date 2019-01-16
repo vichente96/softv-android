@@ -91,12 +91,10 @@ public class Inicio extends AppCompatActivity
             startActivity(intent1);
             //Actualizar la siguente cita y la grafica
             request.getProximaCita();
-            try {
+
                 request.getOrdenes();
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
             finish();
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Inicio.this, Orden.class);
