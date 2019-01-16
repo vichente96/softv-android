@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent">
+
+
+
+
+
+    <!--Primeros datos-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1000dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambio de Domicilio"
+                android:layout_centerHorizontal="true"
+                android:textSize="25dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ciudad:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="85dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="85dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="75dp"
+                android:id="@+id/ciudad"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Localidad:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="115dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="115dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="100dp"
+                android:id="@+id/localidad"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Colonia:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="145dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="145dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="75dp"
+                android:id="@+id/colonia"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calle:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="175dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="175dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="60dp"
+                android:id="@+id/Calle"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="205dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="205dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="75dp"
+                android:id="@+id/numero"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número Interior:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="235dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="235dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="150dp"
+                android:id="@+id/numeroi"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono:"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="265dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="265dp"
+                android:textSize="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="90dp"
+                android:id="@+id/telefono"
+                />
+            <!--Calle completa-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="325dp"
+                android:textSize="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="50dp"
+                android:id="@+id/callecompleta"
+                />
+            <RelativeLayout
+                android:layout_width="500dp"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                android:layout_alignTop="@id/callecompleta"
+                android:id="@+id/map"
+                >
+
+                <ImageView
+                    android:layout_width="500dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:adjustViewBounds="true"
+                    android:cropToPadding="true"
+                    android:src="@drawable/mapanorte" />
+                <ImageView
+                    android:layout_width="500dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/mapasur" />
+                <ImageView
+                    android:layout_width="500dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/mapaeste" />
+                <ImageView
+                    android:layout_width="500dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/mapaoeste" />
+
+                <TextView
+                    android:id="@+id/callenorte"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calle Norte"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="50dp"
+                android:layout_centerHorizontal="true"
+                    android:textColor="#0015ff"
+                    />
+                <TextView
+                    android:id="@+id/callesur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calle Sur"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="130dp"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#0015ff"
+
+                    />
+                <TextView
+                    android:id="@+id/calleeste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calle Este"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="45pt"
+                    android:rotation="90"
+                    android:textColor="#0015ff"
+
+                    />
+                <TextView
+                    android:id="@+id/calleoeste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calle Oeste"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="35pt"
+                    android:rotation="90"
+                    android:textColor="#0015ff"
+
+                    />
+            </RelativeLayout>
+            <Button
+                android:id="@+id/aceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Aceptar"
+                android:layout_marginTop="530dp"
+                />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
