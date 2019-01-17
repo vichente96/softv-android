@@ -4,7 +4,7 @@ import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
+
 
 import com.example.pablo.prueba7.CambioAparato;
 import com.example.pablo.prueba7.Inicio;
@@ -34,16 +34,14 @@ import com.example.pablo.prueba7.Modelos.InfoClienteModelo;
 import com.example.pablo.prueba7.Modelos.OrdSer;
 import com.example.pablo.prueba7.Modelos.ProximaCitaModel;
 import com.example.pablo.prueba7.Modelos.Queja;
-import com.example.pablo.prueba7.Modelos.TrabajosSer;
 import com.example.pablo.prueba7.Modelos.UserModel;
 import com.example.pablo.prueba7.Services.Services;
-import com.example.pablo.prueba7.Trabajos;
 import com.example.pablo.prueba7.sampledata.Service;
 import com.google.gson.JsonObject;
-
+import com.example.pablo.prueba7.Listas.Array;
 import org.json.JSONException;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -51,30 +49,20 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.util.Arrays.asList;
 
 public class Request extends AppCompatActivity {
     Services services = new Services();
-
+Array array = new Array();
 
     public static String clave_tecnico;
 String a="Seleccione tecnico secundario";
+
     public static boolean b = false;
 
     public static String datos[];
-    ArrayList<List<GetdameSerDELCliresumenResult>> dataclientes;
-    ArrayList<List<Queja>> dataque;
-    ArrayList<List<OrdSer>> dataord;
-    ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
-    ArrayList<List<Get_ClvTecnicoResult>> datatec;
-    ArrayList<List<GetBUSCADetOrdSerListResult>> dataTrabajos;
-    ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>> dataTecSec;
-    ArrayList<List<GetListClienteAparatosResult>> dataCliApa;
-    ArrayList<List<GetSP_StatusAparatosListResult>> dataStaApa;
-    ArrayList<List<GetListTipoAparatosByIdArticuloResult>> dataApaTipo;
-    ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>> dataApaTipDis;
+
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
@@ -127,9 +115,9 @@ String a="Seleccione tecnico secundario";
                 //Guardar Body del request en JSONResponseTecnico ya que lo regresa como una lista
                 JSONResponseTecnico jsonResponse = response.body();
                 //Pide datos sobre el Json Get_ClvTecnicoResult haciendo referencia al JsonResponse donde se guardo
-                datatec = new ArrayList<List<Get_ClvTecnicoResult>>(asList(jsonResponse.Get_ClvTecnicoResult()));
+                array.datatec = new ArrayList<List<Get_ClvTecnicoResult>>(asList(jsonResponse.Get_ClvTecnicoResult()));
                 //Se crea un Iterator con la lista para que se pueda recorrer con la informacion
-                Iterator<List<Get_ClvTecnicoResult>> iteData = datatec.iterator();
+                Iterator<List<Get_ClvTecnicoResult>> iteData = array.datatec.iterator();
                 while (iteData.hasNext()) {
                     List<Get_ClvTecnicoResult> data = (List<Get_ClvTecnicoResult>) iteData.next();
                     //Se recorre la lista y se guarla la informacion en el Modelo
@@ -204,8 +192,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
                 Example jsonResponse = response.body();
-                dataord = new ArrayList<List<OrdSer>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getOrdSer()));
-                Iterator<List<OrdSer>> itData = dataord.iterator();
+                array.dataord = new ArrayList<List<OrdSer>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getOrdSer()));
+                Iterator<List<OrdSer>> itData = array.dataord.iterator();
                 while (itData.hasNext()) {
                     List<OrdSer> dat = (List<OrdSer>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
@@ -247,8 +235,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<Example> call, Response<Example> response) {
                 Example jsonResponse = response.body();
-                dataque = new ArrayList<List<Queja>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getQueja()));
-                Iterator<List<Queja>> itData = dataque.iterator();
+                array.dataque = new ArrayList<List<Queja>>(asList(jsonResponse.getDameOrdenesQuejasTotalesResult.getQueja()));
+                Iterator<List<Queja>> itData = array.dataque.iterator();
                 while (itData.hasNext()) {
                     List<Queja> dat = (List<Queja>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
@@ -288,8 +276,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<Example1> call, Response<Example1> response) {
                 Example1 jsonResponse = response.body();
-                dataagenda = new ArrayList<List<GetDameListadoOrdenesAgendadasResult>>(asList(jsonResponse.getGetDameListadoOrdenesAgendadasResult()));
-                Iterator<List<GetDameListadoOrdenesAgendadasResult>> itData = dataagenda.iterator();
+                array.dataagenda = new ArrayList<List<GetDameListadoOrdenesAgendadasResult>>(asList(jsonResponse.getGetDameListadoOrdenesAgendadasResult()));
+                Iterator<List<GetDameListadoOrdenesAgendadasResult>> itData = array.dataagenda.iterator();
                 while (itData.hasNext()) {
                     List<GetDameListadoOrdenesAgendadasResult> dat = (List<GetDameListadoOrdenesAgendadasResult>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
@@ -405,8 +393,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<Example2> call, Response<Example2> response) {
                 Example2 jsonResponse = response.body();
-                dataclientes = new ArrayList<List<GetdameSerDELCliresumenResult>>(asList(jsonResponse.getdameSerDELCliresumenResult()));
-                Iterator<List<GetdameSerDELCliresumenResult>> itData = dataclientes.iterator();
+                array.dataclientes = new ArrayList<List<GetdameSerDELCliresumenResult>>(asList(jsonResponse.getdameSerDELCliresumenResult()));
+                Iterator<List<GetdameSerDELCliresumenResult>> itData = array.dataclientes.iterator();
                 while (itData.hasNext()) {
                     List<GetdameSerDELCliresumenResult> dat = (List<GetdameSerDELCliresumenResult>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
@@ -438,8 +426,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<Example3> call, Response<Example3> response) {
                 Example3 jsonResponse = response.body();
-                dataTrabajos =  new ArrayList<List<GetBUSCADetOrdSerListResult>>(asList(jsonResponse.getGetBUSCADetOrdSerListResult()));
-                Iterator<List<GetBUSCADetOrdSerListResult>> itData = dataTrabajos.iterator();
+                array.dataTrabajos =  new ArrayList<List<GetBUSCADetOrdSerListResult>>(asList(jsonResponse.getGetBUSCADetOrdSerListResult()));
+                Iterator<List<GetBUSCADetOrdSerListResult>> itData = array.dataTrabajos.iterator();
                 while (itData.hasNext()) {
                     List<GetBUSCADetOrdSerListResult> dat = (List<GetBUSCADetOrdSerListResult>) itData.next();
                     for (int i = 0; i < dat.size(); i++) {
@@ -472,8 +460,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<JSONTecSec> call, Response<JSONTecSec> response) {
                 JSONTecSec jsonResponse = response.body();
-                dataTecSec = new ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>>(asList(jsonResponse.GetMuestraRelOrdenesTecnicosListResult()));
-                Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = dataTecSec.iterator();
+                array.dataTecSec = new ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>>(asList(jsonResponse.GetMuestraRelOrdenesTecnicosListResult()));
+                Iterator<List<GetMuestraRelOrdenesTecnicosListResult>> itdata = array.dataTecSec.iterator();
                 while (itdata.hasNext()){
                     List<GetMuestraRelOrdenesTecnicosListResult> dat = itdata.next();
                     datos = new String[dat.size()+1];
@@ -516,14 +504,14 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<JSONCLIAPA> call, Response<JSONCLIAPA> response) {
                 JSONCLIAPA jsonResponse = response.body();
-                dataCliApa = new ArrayList<List<GetListClienteAparatosResult>>(asList(jsonResponse.GetListClienteAparatosResult()));
-                Iterator<List<GetListClienteAparatosResult>> itdata = dataCliApa.iterator();
+                array.dataCliApa = new ArrayList<List<GetListClienteAparatosResult>>(asList(jsonResponse.GetListClienteAparatosResult()));
+                Iterator<List<GetListClienteAparatosResult>> itdata = array.dataCliApa.iterator();
                 while (itdata.hasNext()){
                     List<GetListClienteAparatosResult> dat = itdata.next();
                     String datos[] = new String[dat.size()];
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseAparatosCliente", String.valueOf(dat.get(i).Descripcion));
-                        datos[i] = dat.get(i).getDescripcion();
+                        datos[i] = dat.get(i).getMac();
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                     CambioAparato.aparato.setAdapter(adapter);
@@ -545,8 +533,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<JSONStatusApa> call, Response<JSONStatusApa> response) {
                 JSONStatusApa jsonResponse = response.body();
-                dataStaApa = new ArrayList<List<GetSP_StatusAparatosListResult>>(asList(jsonResponse.GetSP_StatusAparatosListResult()));
-                Iterator<List<GetSP_StatusAparatosListResult>> itdata = dataStaApa.iterator();
+                array.dataStaApa = new ArrayList<List<GetSP_StatusAparatosListResult>>(asList(jsonResponse.GetSP_StatusAparatosListResult()));
+                Iterator<List<GetSP_StatusAparatosListResult>> itdata = array.dataStaApa.iterator();
                 while (itdata.hasNext()){
                     List<GetSP_StatusAparatosListResult> dat = itdata.next();
                     String datos[] = new String[dat.size()];
@@ -581,9 +569,10 @@ String a="Seleccione tecnico secundario";
 
             @Override
             public void onResponse(Call<JSONApaTipo> call, Response<JSONApaTipo> response) {
+
                 JSONApaTipo jsonResponse = response.body();
-                dataApaTipo = new ArrayList<List<GetListTipoAparatosByIdArticuloResult>>(asList(jsonResponse.GetListTipoAparatosByIdArticuloResult()));
-                Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = dataApaTipo.iterator();
+                array.dataApaTipo = new ArrayList<List<GetListTipoAparatosByIdArticuloResult>>(asList(jsonResponse.GetListTipoAparatosByIdArticuloResult()));
+                Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = array.dataApaTipo.iterator();
                 while (itdata.hasNext()){
                     List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
                     String datos[] = new String[dat.size()];
@@ -618,8 +607,8 @@ String a="Seleccione tecnico secundario";
             @Override
             public void onResponse(Call<JSONApaTipDis> call, Response<JSONApaTipDis> response) {
                 JSONApaTipDis jsonResponse = response.body();
-                dataApaTipDis = new ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>>(asList(jsonResponse.GetListAparatosDisponiblesByIdArticuloResult()));
-                Iterator<List<GetListAparatosDisponiblesByIdArticuloResult>> itdata = dataApaTipDis.iterator();
+                array.dataApaTipDis = new ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>>(asList(jsonResponse.GetListAparatosDisponiblesByIdArticuloResult()));
+                Iterator<List<GetListAparatosDisponiblesByIdArticuloResult>> itdata = array.dataApaTipDis.iterator();
                 while (itdata.hasNext()){
                     List<GetListAparatosDisponiblesByIdArticuloResult> dat = itdata.next();
                     String datos[] = new String[dat.size()];

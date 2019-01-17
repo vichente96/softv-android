@@ -1,14 +1,15 @@
 package com.example.pablo.prueba7.Services;
 
-import android.content.IntentFilter;
 
+
+import com.example.pablo.prueba7.CambioAparato;
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
 import com.example.pablo.prueba7.Login;
-import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
+
 import com.example.pablo.prueba7.Modelos.UserModel;
 import com.example.pablo.prueba7.sampledata.Constants;
 import com.example.pablo.prueba7.sampledata.Service;
-import com.google.gson.JsonArray;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -170,7 +171,7 @@ public class Services {
         //POST Body JsonArray
         JSONObject jsonObject = new JSONObject();
         JSONObject jsonObject2 = new JSONObject();
-        jsonObject.put("clv_tecnico",20041);
+        jsonObject.put("clv_tecnico",clave);
         jsonObject.put("op",1);
         jsonObject.put("clv_orden",0);
         jsonObject.put("contratoCom","");
@@ -406,8 +407,8 @@ public class Services {
 
     public Service getApaTipoService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("ContratoNet", 30026);
-        jsonObject.put("Id_Articulo", 23201);
+        jsonObject.put("ContratoNet", CambioAparato.contrato);
+        jsonObject.put("Id_Articulo", CambioAparato.idArticulo);
         MediaType JSON = MediaType.parse("application/json; charse=utf-8");
         final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         final OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
@@ -430,8 +431,8 @@ public class Services {
     }
     public Service getApaTipDisService() throws JSONException {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Clv_Tecnico", 20041);
-        jsonObject.put("Id_Articulo", 22861);
+        jsonObject.put("Clv_Tecnico", clave);
+        jsonObject.put("Id_Articulo", CambioAparato.idArticulo2);
         MediaType JSON = MediaType.parse("application/json; charse=utf-8");
         final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
         final OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
