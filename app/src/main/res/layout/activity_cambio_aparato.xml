@@ -19,6 +19,7 @@
     android:layout_marginTop="50dp"
     >
     <TextView
+        android:id="@+id/posicion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Aparato a Cambiar"
@@ -119,5 +120,10 @@
             />
         </RelativeLayout>
     </RelativeLayout>
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Aceptar"
+    android:layout_alignParentBottom="true"
+    />
 </RelativeLayout>

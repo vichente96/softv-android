@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.example.pablo.prueba7.CambioAparato;
 import com.example.pablo.prueba7.Inicio;
 import com.example.pablo.prueba7.InstalacionFragment;
 import com.example.pablo.prueba7.Listas.Example;
@@ -111,11 +112,7 @@ String a="Seleccione tecnico secundario";
 
         }
     }
-
-
     //////////////////Clave Tecnico////////////////////////////
-
-
     public void getClv_tecnico() {
         Service service = null;
         try {
@@ -155,9 +152,7 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
     ///////////////////Proxima Cita///////////////////////////
-
     public void getProximaCita() {
         Service service = null;
         try {
@@ -192,11 +187,7 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
-
     ///////////////////Ordenes///////////////////////////
-
-
     public void getOrdenes()  {
         Service service = null;
         try {
@@ -240,10 +231,7 @@ String a="Seleccione tecnico secundario";
             getQuejas();
 
     }
-
-
     //////////////////Quejas////////////////////////////
-
     public void getQuejas()  {
         Service service = null;
         try {
@@ -283,10 +271,7 @@ String a="Seleccione tecnico secundario";
 
         });
     }
-
     /////////////////Lista de Ordenes/////////////////////////////
-
-
     public void getListOrd()  {
 
         Service service = null;
@@ -327,7 +312,6 @@ String a="Seleccione tecnico secundario";
 
     }
  ///////////////////Consuta pantalla ordenes///////////////////////////
-
     public void getDeepCons() {
 
         Service service = null;
@@ -371,9 +355,7 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
     /////////////////Informacion del Cliente/////////////////////////////
-
     public void getInfoCliente()  {
 
         Service service = null;
@@ -407,8 +389,7 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
-
+    /////////////////ServiciosdelCliente/////////////////////////////
     public void getServicios()  {
 
         Service service = null;
@@ -445,8 +426,6 @@ String a="Seleccione tecnico secundario";
         });
     }
 /////////////////////////////informacion trabajos//////////////////////////////
-
-
     public void getTrabajos()  {
         Service service = null;
         try {
@@ -479,7 +458,7 @@ String a="Seleccione tecnico secundario";
         });
 
     }
-
+////TecnicoSecundario////
     public void getTecSec(final Context context){
 
         Service service = null;
@@ -510,10 +489,8 @@ String a="Seleccione tecnico secundario";
                     InstalacionFragment.Obs.setText(String.valueOf(DeepConsModel.Obs));
                 }
 
-                    getCliApa();
-                    getStatusApa();
-                    getApaTipo();
-                    getApaTipDis();
+
+
 
             }
 
@@ -523,8 +500,8 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-////////
-    public void getCliApa() {
+////ClientesAparato////
+    public void getCliApa(final Context context) {
 
         Service service = null;
         try {
@@ -543,9 +520,14 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListClienteAparatosResult>> itdata = dataCliApa.iterator();
                 while (itdata.hasNext()){
                     List<GetListClienteAparatosResult> dat = itdata.next();
+                    String datos[] = new String[dat.size()];
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseAparatosCliente", String.valueOf(dat.get(i).Descripcion));
+                        datos[i] = dat.get(i).getDescripcion();
                     }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                    CambioAparato.aparato.setAdapter(adapter);
+
                 }
             }
 
@@ -555,9 +537,8 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
-    public void getStatusApa() {
-
+    ////Status Aparato////
+    public void getStatusApa(final Context context) {
         Service service = services.getStatusApa();
         Call<JSONStatusApa> call = service.getDataStatusApa();
         call.enqueue(new Callback<JSONStatusApa>() {
@@ -568,11 +549,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetSP_StatusAparatosListResult>> itdata = dataStaApa.iterator();
                 while (itdata.hasNext()){
                     List<GetSP_StatusAparatosListResult> dat = itdata.next();
+                    String datos[] = new String[dat.size()];
                     for(int i=0; i< dat.size(); i++){
                         Log.d("responseStatus", dat.get(i).Concepto);
-
+                        datos[i] = dat.get(i).getConcepto();
                     }
-
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                    CambioAparato.estado.setAdapter(adapter);
                 }
 
             }
@@ -584,9 +567,8 @@ String a="Seleccione tecnico secundario";
 
         });
     }
-
-    public void getApaTipo() {
-
+    ////TipoAparato////
+    public void getApaTipo(final Context context) {
         Service service = null;
         try {
             service = services.getApaTipoService();
@@ -604,9 +586,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = dataApaTipo.iterator();
                 while (itdata.hasNext()){
                     List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
+                    String datos[] = new String[dat.size()];
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseIdArticulo", String.valueOf(dat.get(i).IdArticulo));
+                        datos[i] = dat.get(i).getNombre();
                     }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                    CambioAparato.tipoAparato.setAdapter(adapter);
                 }
             }
 
@@ -616,8 +602,8 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
-
-    public void getApaTipDis() {
+    ////AparatoDisponible////
+    public void getApaTipDis(final Context context) {
 
         Service service = null;
         try {
@@ -636,9 +622,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListAparatosDisponiblesByIdArticuloResult>> itdata = dataApaTipDis.iterator();
                 while (itdata.hasNext()){
                     List<GetListAparatosDisponiblesByIdArticuloResult> dat = itdata.next();
+                    String datos[] = new String[dat.size()];
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseClv_aparato", String.valueOf(dat.get(i).Clv_Aparato));
+                        datos[i] = dat.get(i).getDescripcion();
                     }
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
+                    CambioAparato.aparatoAsignar.setAdapter(adapter);
                 }
             }
 

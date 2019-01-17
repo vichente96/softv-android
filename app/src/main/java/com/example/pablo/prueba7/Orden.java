@@ -22,7 +22,7 @@ public class Orden extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
     Request request = new Request();
-    Button orden1, cambio;
+    Button orden1, cambiodom, cambioapa;
 
 
     @Override
@@ -34,7 +34,8 @@ public class Orden extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         orden1 =  findViewById(R.id.orden);
-        cambio = findViewById(R.id.cambio);
+        cambiodom = findViewById(R.id.cambiodom);
+        cambioapa = findViewById(R.id.cambioapa);
         Error.Errores(this);
 
 
@@ -53,10 +54,18 @@ public class Orden extends AppCompatActivity
 
             }
         });
-        cambio.setOnClickListener(new View.OnClickListener() {
+        cambiodom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Orden.this, CambioDom.class);
+                startActivity(intent);
+            }
+        });
+
+        cambioapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Orden.this, CambioAparato.class);
                 startActivity(intent);
             }
         });

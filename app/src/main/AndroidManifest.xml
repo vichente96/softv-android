@@ -54,6 +54,8 @@
         <activity android:name=".CambioDom"
             android:theme="@style/AppTheme.NoActionBar"
             ></activity>
+        <activity android:name=".CambioAparato"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 
