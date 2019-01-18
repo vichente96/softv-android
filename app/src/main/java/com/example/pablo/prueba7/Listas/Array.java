@@ -11,6 +11,7 @@ import com.example.pablo.prueba7.Modelos.Get_ClvTecnicoResult;
 import com.example.pablo.prueba7.Modelos.GetdameSerDELCliresumenResult;
 import com.example.pablo.prueba7.Modelos.OrdSer;
 import com.example.pablo.prueba7.Modelos.Queja;
+import com.example.pablo.prueba7.Modelos.GetDameDatosCAMDOResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,4 +28,5 @@ public class Array {
     public static ArrayList<List<GetSP_StatusAparatosListResult>> dataStaApa;
     public static  ArrayList<List<GetListTipoAparatosByIdArticuloResult>> dataApaTipo;
     public static  ArrayList<List<GetListAparatosDisponiblesByIdArticuloResult>> dataApaTipDis;
+ public static  ArrayList<List<GetDameDatosCAMDOResult>> dataCAMDO;
 }

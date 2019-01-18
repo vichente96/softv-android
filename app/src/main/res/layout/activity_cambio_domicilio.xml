@@ -95,7 +95,7 @@
                 android:textSize="20dp"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="60dp"
-                android:id="@+id/Calle"
+                android:id="@+id/Calledom"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -151,105 +151,201 @@
                 android:layout_marginStart="90dp"
                 android:id="@+id/telefono"
                 />
-            <!--Calle completa-->
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="325dp"
-                android:textSize="20dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="50dp"
-                android:id="@+id/callecompleta"
-                />
+
             <RelativeLayout
-                android:layout_width="500dp"
-                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
                 android:orientation="horizontal"
-                android:layout_alignTop="@id/callecompleta"
+                android:layout_alignTop="@id/telefono"
+                android:layout_marginTop="50dp"
                 android:id="@+id/map"
                 >
 
-                <ImageView
-                    android:layout_width="500dp"
-                    android:layout_height="200dp"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:adjustViewBounds="true"
-                    android:cropToPadding="true"
-                    android:src="@drawable/mapanorte" />
-                <ImageView
-                    android:layout_width="500dp"
-                    android:layout_height="200dp"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/mapasur" />
-                <ImageView
-                    android:layout_width="500dp"
-                    android:layout_height="200dp"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/mapaeste" />
-                <ImageView
-                    android:layout_width="500dp"
-                    android:layout_height="200dp"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/mapaoeste" />
+                <RelativeLayout
+                    android:id="@+id/uno"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
 
-                <TextView
-                    android:id="@+id/callenorte"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calle Norte"
-                    android:layout_alignParentTop="true"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/dos"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
+                    android:layout_below="@id/uno"
                     android:layout_marginTop="50dp"
-                android:layout_centerHorizontal="true"
-                    android:textColor="#0015ff"
-                    />
-                <TextView
-                    android:id="@+id/callesur"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calle Sur"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="130dp"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#0015ff"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
+                    android:layout_below="@id/dos"
+                    android:layout_marginTop="50dp"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="110dp"
+                    android:layout_marginEnd="110dp"
+                    android:id="@+id/center"
+                    >
 
-                    />
+                    <RelativeLayout
+                        android:id="@+id/cuatro"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@drawable/contorno"
+                        android:layout_centerHorizontal="true"
+                        >
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/cinco"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@drawable/contorno"
+                        android:layout_below="@id/cuatro"
+                        android:layout_marginTop="50dp"
+                        android:layout_centerHorizontal="true">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/casa"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/casanorte"
+                            android:visibility="invisible"
+                            />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/casa"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/casasur"
+                            android:visibility="invisible"
+                            />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/casa"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/casaoeste"
+                            android:visibility="invisible"
+                            />
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/casa"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentEnd="true"
+                            android:id="@+id/casaeste"
+                            android:visibility="invisible"
+                            />
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:background="@drawable/contorno"
+                        android:layout_below="@id/cinco"
+                        android:layout_marginTop="50dp"
+                        android:layout_centerHorizontal="true"
+                        >
+                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/callenorte"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Calle Norte"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="100dp"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <TextView
+                        android:id="@+id/callesur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Calle Sur"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="220dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/calleeste"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:text="Calle Este"
+                    android:rotation="90"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="45pt"
-                    android:rotation="90"
-                    android:textColor="#0015ff"
-
+                    android:layout_marginEnd="58dp"
                     />
                 <TextView
                     android:id="@+id/calleoeste"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:text="Calle Oeste"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="35pt"
+                    android:layout_marginStart="30dp"
                     android:rotation="90"
-                    android:textColor="#0015ff"
-
                     />
+                <RelativeLayout
+                    android:id="@+id/siete"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
+                    android:layout_alignParentEnd="true"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/ocho"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/siete"
+                    android:layout_marginTop="50dp"
+                    >
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/contorno"
+                    android:layout_alignParentEnd="true"
+                    android:layout_below="@id/ocho"
+                    android:layout_marginTop="50dp"
+                    >
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/flecha"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        />
+                </RelativeLayout>
+
+
+
+
+
+
+
+
             </RelativeLayout>
             <Button
                 android:id="@+id/aceptar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Aceptar"
-                android:layout_marginTop="530dp"
+                android:layout_marginTop="700dp"
                 />
         </RelativeLayout>
     </ScrollView>

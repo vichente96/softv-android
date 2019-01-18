@@ -57,6 +57,7 @@ public class Orden extends AppCompatActivity
         cambiodom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                request.getCAMDO();
                 Intent intent = new Intent(Orden.this, CambioDom.class);
                 startActivity(intent);
             }

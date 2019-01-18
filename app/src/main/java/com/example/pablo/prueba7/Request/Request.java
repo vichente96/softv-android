@@ -1,12 +1,16 @@
 package com.example.pablo.prueba7.Request;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 
 
 import com.example.pablo.prueba7.CambioAparato;
+import com.example.pablo.prueba7.CambioDom;
 import com.example.pablo.prueba7.Inicio;
 import com.example.pablo.prueba7.InstalacionFragment;
 import com.example.pablo.prueba7.Listas.Example;
@@ -15,11 +19,13 @@ import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONApaTipDis;
 import com.example.pablo.prueba7.Listas.JSONApaTipo;
+import com.example.pablo.prueba7.Listas.JSONCAMDO;
 import com.example.pablo.prueba7.Listas.JSONCLIAPA;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
 import com.example.pablo.prueba7.Listas.JSONStatusApa;
 import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.example.pablo.prueba7.MainActivity;
+import com.example.pablo.prueba7.Modelos.GetDameDatosCAMDOResult;
 import com.example.pablo.prueba7.Modelos.DeepConsModel;
 import com.example.pablo.prueba7.Modelos.GetBUSCADetOrdSerListResult;
 import com.example.pablo.prueba7.Modelos.GetListAparatosDisponiblesByIdArticuloResult;
@@ -55,7 +61,7 @@ import static java.util.Arrays.asList;
 public class Request extends AppCompatActivity {
     Services services = new Services();
 Array array = new Array();
-
+CambioDom c = new CambioDom();
     public static String clave_tecnico;
 String a="Seleccione tecnico secundario";
 
@@ -88,6 +94,7 @@ String a="Seleccione tecnico secundario";
 
                     b = true;
                         getClv_tecnico();
+
 
                 }
 
@@ -627,6 +634,58 @@ String a="Seleccione tecnico secundario";
             }
         });
     }
+    public void getCAMDO() {
+        Service service = null;
+        try {
+            service = services.getCAMODOService();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Call<JSONCAMDO> call = service.getDataCAMDO();
+        call.enqueue(new Callback<JSONCAMDO>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(Call<JSONCAMDO> call, Response<JSONCAMDO> response) {
+                JSONCAMDO jsonResponse = response.body();
+                array.dataCAMDO = new ArrayList<List<GetDameDatosCAMDOResult>>(asList(jsonResponse.getDameDatosCAMDOResult()));
+                Iterator<List<GetDameDatosCAMDOResult>> itdata = array.dataCAMDO.iterator();
+                while (itdata.hasNext()){
+                    List<GetDameDatosCAMDOResult> dat = itdata.next();
+                    String datos[] = new String[dat.size()];
+                    for (int i=0; i<dat.size(); i++){
+                        Log.d("casa", dat.get(i).getCasa());
+                    }
+                    c.Ciudad.setText(dat.get(0).getCiudad());
+                    c.Localidad.setText(dat.get(0).getLocalidad());
+                    c.Colonia.setText(dat.get(0).getColonia());
+                    c.Calle.setText(dat.get(0).getCalle());
+                    c.Numero.setText(String.valueOf(dat.get(0).getNUMERO()));
+                    c.Numero_i.setText(dat.get(0).getNum_int());
+                    c.Telefono.setText(dat.get(0).getTELEFONO());
+                    c.CalleN.setText(dat.get(0).getCalleNorte());
+                    c.CalleS.setText(dat.get(0).getCalleSur());
+                    c.CallleE.setText(dat.get(0).getCalleEste());
+                    c.CalleO.setText(dat.get(0).getCalleOeste());
 
+                    if(dat.get(0).getCasa().equals("N")){
+                        c.CasaNorte.setVisibility(View.VISIBLE);
+                    }if(dat.get(0).getCasa().equals("S")){
+                        c.CasaSur.setVisibility(View.VISIBLE);
+                    }if(dat.get(0).getCasa().equals("E")) {
+                        c.CasaEste.setVisibility(View.VISIBLE);
+                    }if(dat.get(0).getCasa().equals("O")){
+                        c.CasaOeste.setVisibility(View.VISIBLE);
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JSONCAMDO> call, Throwable t) {
+
+            }
+        });
+    }
 
 }

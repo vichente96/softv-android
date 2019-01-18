@@ -17,6 +17,7 @@ public class Constants {
     public static final String URL_GET_STATUS = "MuestraAparatosDisponibles/GetSP_StatusAparatosList";
     public static final String URL_GET_APA_TIPO = "MuestraAparatosDisponibles/GetListTipoAparatosByIdArticulo";
     public static final String URL_GET_APA_TIP_DIS = "MuestraAparatosDisponibles/GetListAparatosDisponiblesByIdArticulo";
+    public static final String URL_GET_DAT_CAMDO = "AplicacionMovil/GetDameDatosCAMDO";
 
 
 }

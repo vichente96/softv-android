@@ -38,12 +38,16 @@
             android:label="@string/title_activity_configuracion"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
+            android:configChanges="screenSize|orientation"
+            ></activity>
         <activity android:name=".asignacion"></activity>
         <activity android:name=".asignado"></activity>
 
         <activity android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,6 +57,7 @@
         </activity>
         <activity android:name=".CambioDom"
             android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="screenSize|orientation"
             ></activity>
         <activity android:name=".CambioAparato"
             android:theme="@style/AppTheme.NoActionBar"></activity>

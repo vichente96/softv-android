@@ -8,11 +8,14 @@ import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
 import com.example.pablo.prueba7.Listas.JSONApaTipDis;
 import com.example.pablo.prueba7.Listas.JSONApaTipo;
+import com.example.pablo.prueba7.Listas.JSONCAMDO;
 import com.example.pablo.prueba7.Listas.JSONCLIAPA;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
 import com.example.pablo.prueba7.Listas.JSONStatusApa;
 import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -47,6 +50,8 @@ public interface Service {
     Call<JSONApaTipo> getDataApaTipo();
     @POST(Constants.URL_GET_APA_TIP_DIS)
     Call<JSONApaTipDis> getDataApaTipDis();
+    @POST(Constants.URL_GET_DAT_CAMDO)
+    Call<JSONCAMDO> getDataCAMDO();
 
 }
 
