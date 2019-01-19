@@ -22,7 +22,7 @@ public class Orden extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener {
     Request request = new Request();
-    Button orden1, confi;
+    Button orden1, cambiodom, cambioapa;
 
 
     @Override
@@ -34,6 +34,8 @@ public class Orden extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         orden1 =  findViewById(R.id.orden);
+        cambiodom = findViewById(R.id.cambiodom);
+        cambioapa = findViewById(R.id.cambioapa);
         Error.Errores(this);
 
 
@@ -45,25 +47,34 @@ public class Orden extends AppCompatActivity
 
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
-                try {
                     request.getTrabajos();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
-                   request.getDeepCons();
+                    request.getDeepCons();
+                    request.getDeepCons();
 
 
 
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
 
 
+
+        });
+        cambiodom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                request.getCAMDO();
+                Intent intent = new Intent(Orden.this, CambioDom.class);
+                startActivity(intent);
             }
         });
 
+        cambioapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Orden.this, CambioAparato.class);
+                startActivity(intent);
+            }
+        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -106,11 +117,9 @@ public class Orden extends AppCompatActivity
             startActivity(intent1);
             //Actualizar la siguente cita y la grafica
            request.getProximaCita();
-            try {
+
                 request.getOrdenes();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Orden.this, Orden.class);
             startActivity(intent1);

@@ -6,9 +6,16 @@ import com.example.pablo.prueba7.Listas.Example;
 import com.example.pablo.prueba7.Listas.Example1;
 import com.example.pablo.prueba7.Listas.Example2;
 import com.example.pablo.prueba7.Listas.Example3;
+import com.example.pablo.prueba7.Listas.JSONApaTipDis;
+import com.example.pablo.prueba7.Listas.JSONApaTipo;
+import com.example.pablo.prueba7.Listas.JSONCAMDO;
+import com.example.pablo.prueba7.Listas.JSONCLIAPA;
 import com.example.pablo.prueba7.Listas.JSONResponseTecnico;
+import com.example.pablo.prueba7.Listas.JSONStatusApa;
 import com.example.pablo.prueba7.Listas.JSONTecSec;
 import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -35,7 +42,16 @@ public interface Service {
     Call<Example3> getDataTrabajos();
     @POST(Constants.URL_GET_TEC_SEC)
     Call<JSONTecSec> getDataTecSec();
-
+    @POST(Constants.URL_GET_CLI_APA)
+    Call<JSONCLIAPA> getDataCliApa();
+    @GET(Constants.URL_GET_STATUS)
+    Call<JSONStatusApa> getDataStatusApa();
+    @POST(Constants.URL_GET_APA_TIPO)
+    Call<JSONApaTipo> getDataApaTipo();
+    @POST(Constants.URL_GET_APA_TIP_DIS)
+    Call<JSONApaTipDis> getDataApaTipDis();
+    @POST(Constants.URL_GET_DAT_CAMDO)
+    Call<JSONCAMDO> getDataCAMDO();
 
 }
 

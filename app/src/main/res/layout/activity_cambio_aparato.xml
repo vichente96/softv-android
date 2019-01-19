@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="1000dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+
+
+<RelativeLayout
+    android:id="@+id/ads"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el Aparato"
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:id="@+id/qwe"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/posicion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/qwe"
+        android:layout_marginTop="50dp"
+        android:text="Aparato a Cambiar"
+        android:textSize="30dp"
+        android:textStyle="bold"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aparato:"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="120dp"
+        android:textStyle="bold"
+
+        />
+    <Spinner
+        android:id="@+id/aparato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="150dp"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado del Aparato:"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="190dp"
+        />
+    <Spinner
+        android:id="@+id/estadoaparato"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="220dp"
+        />
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ads"
+        android:layout_marginTop="300dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aparato a Asignar"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/aa"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo Aparato:"
+            android:textSize="25dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"
+            android:textStyle="bold"
+            />
+        <Spinner
+            android:id="@+id/tipo_aparato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="110dp"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aa"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aparato:"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            />
+        <Spinner
+            android:id="@+id/aparatoAsignar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="70dp"
+            />
+        </RelativeLayout>
+        <Button
+            android:id="@+id/done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aceptar"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="280dp"
+            />
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
