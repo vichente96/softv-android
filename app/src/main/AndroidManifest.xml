@@ -22,40 +22,28 @@
         <activity
             android:name=".Inicio"
             android:label="Inicio"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            >
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
             android:name=".Orden"
             android:label="@string/title_activity_orden"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Reportes"
             android:label="@string/title_activity_reportes"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Configuracion"
             android:label="@string/title_activity_configuracion"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".MainActivity"
-            android:configChanges="screenSize|orientation"
-            ></activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".asignacion"></activity>
         <activity android:name=".asignado"></activity>
 
         <activity android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar"
-
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,12 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CambioDom"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="screenSize|orientation"
-            ></activity>
-        <activity android:name=".CambioAparato"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 

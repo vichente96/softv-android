@@ -25,10 +25,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.example.pablo.prueba7.Request.Request;
-
-import org.json.JSONException;
-
 import java.util.Calendar;
 
 
@@ -44,9 +40,8 @@ public class InstalacionFragment extends Fragment implements View.OnClickListene
     TextView coordenadas, direccion;
     public static TextView Obs;
     public static Spinner TecSec;
-Request request = new Request();
-    RadioButton btn1, bt2;
 
+    RadioButton btn1, bt2;
 
 
     public InstalacionFragment() {
@@ -59,9 +54,6 @@ Request request = new Request();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.activity_hora, container, false);
         Obs = view.findViewById(R.id.obs);
-
-            request.getTecSec(getContext());
-
 
         //////////// acciones de botones de hora y fecha//////
         selectDate = view.findViewById(R.id.ejecureal);

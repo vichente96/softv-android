@@ -22,8 +22,6 @@ import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
 
-import java.security.spec.ECField;
-
 
 public class Login extends AppCompatActivity {
     /*
@@ -73,25 +71,17 @@ public class Login extends AppCompatActivity {
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            try{
-                user = usurio.getText().toString() + ":" + contraseña.getText().toString();
+               user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
-                try{
-                    request.getReviews();
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Error en el Login(request)",Toast.LENGTH_LONG).show();
-                }
+                request.getReviews();
 
-                if (request.b=true) {
 
-                    Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
-                    Intent intento = new Intent(Login.this, Inicio.class);
-                    startActivity(intento);
+                if (request.b=true){
+
+                    Toast.makeText(getApplicationContext(),"Bienvenido",Toast.LENGTH_LONG).show();
+                  Intent intento = new Intent(Login.this, Inicio.class);
+                  startActivity(intento);
                 }
-                }catch (Exception e){
-                Toast.makeText(getApplicationContext(),"Error en el Login(pantalla login)",Toast.LENGTH_LONG).show();
-            }
             }
         });
 

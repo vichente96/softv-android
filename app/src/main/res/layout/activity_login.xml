@@ -37,7 +37,7 @@
         android:layout_marginTop="20dp"
         android:hint="Contraseña"
         android:singleLine="true"
-        android:text="123"
+        android:text="0601x-2L"
         android:textSize="30dp" />
 
     <Button

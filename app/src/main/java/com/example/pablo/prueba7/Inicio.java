@@ -91,10 +91,12 @@ public class Inicio extends AppCompatActivity
             startActivity(intent1);
             //Actualizar la siguente cita y la grafica
             request.getProximaCita();
-
+            try {
                 request.getOrdenes();
 
-
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             finish();
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Inicio.this, Orden.class);
@@ -125,7 +127,7 @@ public class Inicio extends AppCompatActivity
     public static void Grafica(){
 
         //Propiedades de la grafica
-        pieChart.setUsePercentValues(true);
+        pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5, 10, 5, 5);
         pieChart.setDragDecelerationFrictionCoef(1f);
@@ -135,27 +137,14 @@ public class Inicio extends AppCompatActivity
 
         //Datos de la grafica
         ArrayList<PieEntry> yValues = new ArrayList<>();
-        if (OE != 0){
-            yValues.add(new PieEntry(OE,"OrdenEjecutada"));
-        }
-        if (OP != 0) {
-            yValues.add(new PieEntry(OP,"OrdenPendiente"));
-        }
-        if (OV != 0){
-            yValues.add(new PieEntry(OV,"OrdenEnVisita"));
-        }
-        if (RE != 0){
-            yValues.add(new PieEntry(RE,"ReporteEjecutada"));
-        }
-        if (RP != 0){
-            yValues.add(new PieEntry(RP,"ReportePendiente"));
-        }
-        if (REP != 0){
-            yValues.add(new PieEntry(REP,"ReporteEnProceso"));
-        }
-        if (RV != 0){
-            yValues.add(new PieEntry(RV,"ReporteEnVisita"));
-        }
+        yValues.add(new PieEntry(OE,"OrdenEjecutada"));
+        yValues.add(new PieEntry(OP,"OrdenPendiente"));
+        yValues.add(new PieEntry(OV,"OrdenEnVisita"));
+        yValues.add(new PieEntry(RE,"ReporteEjecutada"));
+        yValues.add(new PieEntry(RP,"ReportePendiente"));
+        yValues.add(new PieEntry(REP,"ReporteEnProceso"));
+        yValues.add(new PieEntry(RV,"ReporteEnVisita"));
+
         PieDataSet dataSet = new PieDataSet(yValues, "");
         dataSet.setSliceSpace(7f);
         dataSet.setSelectionShift(10f);
