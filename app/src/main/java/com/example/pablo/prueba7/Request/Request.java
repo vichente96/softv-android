@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 
 import com.example.pablo.prueba7.CambioAparato;
@@ -72,7 +73,7 @@ String a="Seleccione tecnico secundario";
 
     ///////////////////Token///////////////////////////
     public void getReviews() {
-        try {
+
             final List<String> lista = new ArrayList();
 
             Services restApiAdapter = new Services();
@@ -82,15 +83,21 @@ String a="Seleccione tecnico secundario";
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     //Peticion de datos sobre el Json "LogOnResult"
-                    JsonObject userJson = response.body().getAsJsonObject("LogOnResult");
-                    Log.d("response2", userJson.get("Usuario").getAsString());
-                    Log.d("response3", userJson.get("Token").getAsString());
-                    //Introduccion de datos del request en el Modelo para poder usarlos
-                    UserModel user = new UserModel(
-                            userJson.get("Usuario").getAsString(),
-                            userJson.get("Token").getAsString(),
-                            userJson.get("Codigo").getAsString()
-                    );
+                    try {
+                        JsonObject userJson = response.body().getAsJsonObject("LogOnResult");
+                        Log.d("response2", userJson.get("Usuario").getAsString());
+                        Log.d("response3", userJson.get("Token").getAsString());
+                        //Introduccion de datos del request en el Modelo para poder usarlos
+                        UserModel user = new UserModel(
+                                userJson.get("Usuario").getAsString(),
+                                userJson.get("Token").getAsString(),
+                                userJson.get("Codigo").getAsString()
+                        );
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),"Error en el Login(request)",Toast.LENGTH_LONG).show();
+                    }
+
+
 
                     b = true;
                         getClv_tecnico();
@@ -103,9 +110,6 @@ String a="Seleccione tecnico secundario";
 
                 }
             });
-        } catch (Throwable e) {
-
-        }
     }
     //////////////////Clave Tecnico////////////////////////////
     public void getClv_tecnico() {
@@ -207,10 +211,21 @@ String a="Seleccione tecnico secundario";
                         Log.d("response9", dat.get(i).getStatus());
                         Log.d("response10", String.valueOf(dat.get(i).getTotal()));
                     }
-                    Inicio.OE = dat.get(0).getTotal();
-                    Inicio.OP = dat.get(1).getTotal();
-                    Inicio.OV = dat.get(2).getTotal();
-                    Inicio.Grafica();
+                    try{
+                        Inicio.OE = dat.get(0).getTotal();
+                    }catch (Exception e){
+                        Inicio.OE = 0;
+                    }
+                    try{
+                        Inicio.OP = dat.get(1).getTotal();
+                    }catch (Exception e){
+                        Inicio.OP = 0;
+                    }
+                    try{
+                        Inicio.OV = dat.get(2).getTotal();
+                    }catch (Exception e){
+                        Inicio.OV = 0;
+                    }
                 }
 
             }
@@ -250,10 +265,26 @@ String a="Seleccione tecnico secundario";
                         Log.d("response7", dat.get(i).getStatus());
                         Log.d("response8", String.valueOf(dat.get(i).getTotal()));
                     }
-                    Inicio.RE = dat.get(0).getTotal();
-                    Inicio.RP = dat.get(1).getTotal();
-                    Inicio.REP = dat.get(2).getTotal();
-                    Inicio.RV = dat.get(3).getTotal();
+                    try{
+                        Inicio.RE = dat.get(0).getTotal();
+                    }catch (Exception e){
+                        Inicio.RE = 0;
+                    }
+                    try{
+                        Inicio.RP = dat.get(1).getTotal();
+                    }catch (Exception e){
+                        Inicio.RP = 0;
+                    }
+                    try{
+                        Inicio.REP = dat.get(2).getTotal();
+                    }catch (Exception e){
+                        Inicio.REP = 0;
+                    }
+                    try{
+                        Inicio.RV = dat.get(3).getTotal();
+                    }catch (Exception e){
+                        Inicio.RV = 0;
+                    }
                 }
                 Inicio.Grafica();
             }

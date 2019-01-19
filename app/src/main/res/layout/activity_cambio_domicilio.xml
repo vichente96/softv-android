@@ -259,16 +259,17 @@
                     </RelativeLayout>
                     <TextView
                         android:id="@+id/callenorte"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Calle Norte"
                         android:layout_alignParentTop="true"
                         android:layout_marginTop="100dp"
                         android:layout_centerHorizontal="true"
+
                         />
                     <TextView
                         android:id="@+id/callesur"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Calle Sur"
                         android:layout_alignParentTop="true"
@@ -285,7 +286,7 @@
                     android:rotation="90"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="58dp"
+                    android:layout_marginEnd="60dp"
                     />
                 <TextView
                     android:id="@+id/calleoeste"
@@ -294,7 +295,7 @@
                     android:text="Calle Oeste"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="40dp"
                     android:rotation="90"
                     />
                 <RelativeLayout
