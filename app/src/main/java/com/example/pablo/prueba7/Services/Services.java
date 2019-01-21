@@ -135,8 +135,7 @@ public class Services {
     public Service getOrdSerService() throws JSONException {
         //POST Body Json
         JSONObject jsonObject = new JSONObject();
-       // jsonObject.put("clv_tecnico", clave);
-        jsonObject.put("clv_tecnico", 0);
+        jsonObject.put("clv_tecnico", clave);
         MediaType JSON = MediaType.parse("application/json; charset=utf-8");
         final RequestBody body = RequestBody.create(JSON, jsonObject.toString());
 

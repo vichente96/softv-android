@@ -156,6 +156,9 @@ public class Inicio extends AppCompatActivity
         if (RV != 0){
             yValues.add(new PieEntry(RV,"ReporteEnVisita"));
         }
+        if(yValues.isEmpty() == true){
+            yValues.add(new PieEntry(100f, "Completado"));
+        }
         PieDataSet dataSet = new PieDataSet(yValues, "");
         dataSet.setSliceSpace(7f);
         dataSet.setSelectionShift(10f);
