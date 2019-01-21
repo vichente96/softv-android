@@ -32,10 +32,12 @@ public class CambioAparato extends AppCompatActivity {
         done = (Button) findViewById(R.id.done);
         aparato = findViewById(R.id.aparato);
         estado = findViewById(R.id.estadoaparato);
-        tipoAparato = findViewById(R.id.tipo_aparato);
+        tipoAparato = findViewById(R.id.tipo_aparato1);
         aparatoAsignar = findViewById(R.id.aparatoAsignar);
         request.getCliApa(getApplicationContext());
         request.getStatusApa(getApplicationContext());
+
+
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,18 +45,17 @@ public class CambioAparato extends AppCompatActivity {
                 startActivity(intento1);
             }
         });
-aparato.setSelection(-1);
         aparato.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        Iterator<List<GetListClienteAparatosResult>> itdata = array.dataCliApa.iterator();
-                        List<GetListClienteAparatosResult> dat = itdata.next();
-                        idArticulo = dat.get(position).getIdArticulo();
-                        contrato = dat.get(position).getControNet();
-                        request.getApaTipo(getApplicationContext());
-
-
+                        if(position!=0){
+                            Iterator<List<GetListClienteAparatosResult>> itdata = array.dataCliApa.iterator();
+                            List<GetListClienteAparatosResult> dat = itdata.next();
+                            idArticulo = dat.get(position-1).getIdArticulo();
+                            contrato = dat.get(position-1).getControNet();
+                            request.getApaTipo(getApplicationContext());
+                        }
                     }
 
                     @Override
@@ -67,11 +68,12 @@ aparato.setSelection(-1);
         tipoAparato.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = array.dataApaTipo.iterator();
-                List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
-                idArticulo2 = dat.get(position).getIdArticulo();
-                request.getApaTipDis(getApplicationContext());
-
+                if(position!=0) {
+                    Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = array.dataApaTipo.iterator();
+                    List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
+                    idArticulo2 = dat.get(position-1).getIdArticulo();
+                    request.getApaTipDis(getApplicationContext());
+                }
             }
 
             @Override

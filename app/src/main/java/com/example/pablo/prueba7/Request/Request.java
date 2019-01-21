@@ -557,10 +557,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListClienteAparatosResult>> itdata = array.dataCliApa.iterator();
                 while (itdata.hasNext()){
                     List<GetListClienteAparatosResult> dat = itdata.next();
-                    String datos[] = new String[dat.size()];
+                    String datos[] = new String[dat.size()+1];
+                    datos[0]="Seleccione Aparato";
+                    int j=1;
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseAparatosCliente", String.valueOf(dat.get(i).Descripcion));
-                        datos[i] = dat.get(i).getMac();
+                        datos[j] = dat.get(i).getMac();
+                        j=j+1;
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                     CambioAparato.aparato.setAdapter(adapter);
@@ -586,11 +589,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetSP_StatusAparatosListResult>> itdata = array.dataStaApa.iterator();
                 while (itdata.hasNext()){
                     List<GetSP_StatusAparatosListResult> dat = itdata.next();
-                    String datos[] = new String[dat.size()];
-                    datos[-1] = "Seleccione";
+                    String datos[] = new String[dat.size()+1];
+                    datos[0] = "Seleccione Estado";
+                    int j=1;
                     for(int i=0; i< dat.size(); i++){
                         Log.d("responseStatus", dat.get(i).Concepto);
-                        datos[i] = dat.get(i).getConcepto();
+                        datos[j] = dat.get(i).getConcepto();
+                        j=j+1;
                     }
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
@@ -626,10 +631,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListTipoAparatosByIdArticuloResult>> itdata = array.dataApaTipo.iterator();
                 while (itdata.hasNext()){
                     List<GetListTipoAparatosByIdArticuloResult> dat = itdata.next();
-                    String datos[] = new String[dat.size()];
+                    String datos[] = new String[dat.size()+1];
+                    datos[0]="Seleccione Tipo de Aparato";
+                    int j=1;
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseIdArticulo", String.valueOf(dat.get(i).IdArticulo));
-                        datos[i] = dat.get(i).getNombre();
+                        datos[j] = dat.get(i).getNombre();
+                        j=j+1;
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                     CambioAparato.tipoAparato.setAdapter(adapter);
@@ -662,10 +670,13 @@ String a="Seleccione tecnico secundario";
                 Iterator<List<GetListAparatosDisponiblesByIdArticuloResult>> itdata = array.dataApaTipDis.iterator();
                 while (itdata.hasNext()){
                     List<GetListAparatosDisponiblesByIdArticuloResult> dat = itdata.next();
-                    String datos[] = new String[dat.size()];
+                    String datos[] = new String[dat.size()+1];
+                    datos[0]="Seleccine Aparato Disponible";
+                    int j=1;
                     for (int i=0; i<dat.size(); i++){
                         Log.d("responseClv_aparato", String.valueOf(dat.get(i).Clv_Aparato));
-                        datos[i] = dat.get(i).getDescripcion();
+                        datos[j] = dat.get(i).getDescripcion();
+                        j=j+1;
                     }
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                     CambioAparato.aparatoAsignar.setAdapter(adapter);
