@@ -74,15 +74,11 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-            try{
+
                 user = usurio.getText().toString() + ":" + contraseña.getText().toString();
                 enco = (android.util.Base64.encodeToString(user.getBytes(), android.util.Base64.NO_WRAP));
-
-                try{
                     request.getReviews();
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Error en el Login(request)",Toast.LENGTH_LONG).show();
-                }
+
 
                 if (request.b=true) {
 
@@ -90,9 +86,6 @@ public class Login extends AppCompatActivity {
                     Intent intento = new Intent(Login.this, Inicio.class);
                     startActivity(intento);
                 }
-                }catch (Exception e){
-                Toast.makeText(getApplicationContext(),"Error en el Login(pantalla login)",Toast.LENGTH_LONG).show();
-            }
             }
         });
 
