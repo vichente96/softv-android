@@ -49,23 +49,17 @@ public class MainActivity extends AppCompatActivity implements ActionBar.TabList
         Direccion= findViewById(R.id.infodireccion);
         InfoServicios= findViewById(R.id.infoservicios);
         setTitle(null);
-        try {
+
             request.getTecSec(this);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
 //* Boton de informacion
 
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    request.getInfoCliente();
+                request.getInfoCliente();
                     request.getServicios();
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
 
                 if(layoutAnimado.getVisibility()==View.GONE) {
                     layoutAnimado.setVisibility(View.VISIBLE);

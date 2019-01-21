@@ -70,11 +70,8 @@ public class Reportes extends AppCompatActivity
                 startActivity(intent1);
                 //Actualizar la siguente cita y la grafica
                request.getProximaCita();
-                try {
                     request.getOrdenes();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+
             } else if (id == R.id.Ordenes) {
                 Intent intent1 = new Intent(Reportes.this, Orden.class);
                 startActivity(intent1);

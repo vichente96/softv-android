@@ -18,9 +18,11 @@ import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
 
-public class Orden extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class Orden extends AppCompatActivity
+
+        implements NavigationView.OnNavigationItemSelectedListener {
     Request request = new Request();
-    Button orden1, confi;
+    Button orden1, cambiodom, cambioapa;
 
 
     @Override
@@ -32,6 +34,8 @@ public class Orden extends AppCompatActivity implements NavigationView.OnNavigat
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         orden1 =  findViewById(R.id.orden);
+        cambiodom = findViewById(R.id.cambiodom);
+        cambioapa = findViewById(R.id.cambioapa);
         Error.Errores(this);
 
 
@@ -41,39 +45,29 @@ public class Orden extends AppCompatActivity implements NavigationView.OnNavigat
             @Override
             public void onClick(View v) {
 
-
                 Intent intento1 = new Intent(Orden.this, MainActivity.class);
                 startActivity(intento1);
 
-                try {
-                    request.getTrabajos();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                try {
                    request.getDeepCons();
 
 
 
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
+            }
+        });
         cambiodom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 request.getCAMDO();
-                Intent intent2 = new Intent(Orden.this, CambioDom.class);
-                startActivity(intent2);
+                Intent intent = new Intent(Orden.this, CambioDom.class);
+                startActivity(intent);
             }
         });
 
         cambioapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(Orden.this, CambioAparato.class);
-                startActivity(intent3);
+                Intent intent = new Intent(Orden.this, CambioAparato.class);
+                startActivity(intent);
             }
         });
 
@@ -118,15 +112,8 @@ public class Orden extends AppCompatActivity implements NavigationView.OnNavigat
             startActivity(intent1);
             //Actualizar la siguente cita y la grafica
            request.getProximaCita();
-<<<<<<< Updated upstream
-            try {
-                request.getOrdenes();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-=======
-           request.getOrdenes();
 
+                request.getOrdenes();
 
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Orden.this, Orden.class);
