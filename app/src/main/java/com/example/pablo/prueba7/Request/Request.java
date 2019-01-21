@@ -142,7 +142,7 @@ String a="Seleccione tecnico secundario";
 
                 getProximaCita();
                     getOrdenes();
-                getListOrd();
+
 
 
             }
@@ -325,9 +325,18 @@ String a="Seleccione tecnico secundario";
                         Log.d("Contrato", dat.get(i).getContrato());
                         Log.d("Nombre", dat.get(i).getNombre());
                         Log.d("Status", dat.get(i).getStatus());
-                    }
-                }
 
+                        //guardando datos dentro de los arrays
+                        Array.ordenx.add(String.valueOf(dat.get(i).getClvOrden()));
+                        Array.contratox.add(String.valueOf(dat.get(i).getContrato()));
+                        Array.nombrex.add(String.valueOf(dat.get(i).getNombre()));
+                        Array.statusx.add(String.valueOf(dat.get(i).getStatus()));
+
+
+                    }
+
+
+                }
             }
 
             @Override

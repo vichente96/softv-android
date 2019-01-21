@@ -20,7 +20,13 @@ public class Array {
    public static ArrayList<List<GetdameSerDELCliresumenResult>> dataclientes;
     public static ArrayList<List<Queja>> dataque;
     public static  ArrayList<List<OrdSer>> dataord;
+    //////////////////////ARRAY ORDENES//////////////////////
     public static ArrayList<List<GetDameListadoOrdenesAgendadasResult>> dataagenda;
+    public static ArrayList <String>contratox=new ArrayList<>();
+    public static ArrayList <String>statusx=new ArrayList<>();
+    public static ArrayList <String>nombrex=new ArrayList<>();
+    public static ArrayList <String>ordenx=new ArrayList<>();
+ //////////////////////////////////////////
     public static  ArrayList<List<Get_ClvTecnicoResult>> datatec;
     public static ArrayList<List<GetBUSCADetOrdSerListResult>> dataTrabajos;
     public static ArrayList<List<GetMuestraRelOrdenesTecnicosListResult>> dataTecSec;

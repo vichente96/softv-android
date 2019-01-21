@@ -12,8 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.pablo.prueba7.Listas.Array;
 import com.example.pablo.prueba7.Request.Request;
 
 import org.json.JSONException;
@@ -23,6 +28,7 @@ public class Orden extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Request request = new Request();
     Button orden1, cambiodom, cambioapa;
+    ListView ordenes;
 
 
     @Override
@@ -36,9 +42,15 @@ public class Orden extends AppCompatActivity
         orden1 =  findViewById(R.id.orden);
         cambiodom = findViewById(R.id.cambiodom);
         cambioapa = findViewById(R.id.cambioapa);
+        ordenes=findViewById(R.id.listorden);
         Error.Errores(this);
 
+        ////////////////////////////////////////
 
+        OrdenesListAdaapter1 ordAdapt=new OrdenesListAdaapter1();
+        ordenes.setAdapter(ordAdapt);    //Asignacion del adapatador a la listView
+
+        //////////////////////////////////////////
 
         //* Boton para ir a menu principal
         orden1.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +93,47 @@ public class Orden extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    ///////////////////////ADAPTADOR ORDENES//////////////////////
+    class OrdenesListAdaapter1 extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return Array.ordenx.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return position;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+
+            convertView = getLayoutInflater().inflate(R.layout.ordenes_list_items,null);
+
+
+            TextView status=(TextView)convertView.findViewById(R.id.statusv);
+            Button orden=(Button)convertView.findViewById(R.id.ordenv);
+            TextView contrato=(TextView)convertView.findViewById(R.id.contratov);
+            TextView nombre=(TextView)convertView.findViewById(R.id.nombrev);
+
+
+            status.setText(Array.statusx.get(position));
+            orden.setText(Array.ordenx.get(position));
+            contrato.setText(Array.contratox.get(position));
+            nombre.setText(Array.nombrex.get(position));
+
+            return convertView;
+        }
+    }
+
+    ////////////////////////////////////////////
 
     @Override
     public void onBackPressed() {
