@@ -43,7 +43,7 @@ public class CambioAparato extends AppCompatActivity {
                 startActivity(intento1);
             }
         });
-
+aparato.setSelection(-1);
         aparato.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override

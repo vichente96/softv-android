@@ -103,6 +103,7 @@ String a="Seleccione tecnico secundario";
                         getClv_tecnico();
 
 
+
                 }
 
                 @Override
@@ -141,6 +142,7 @@ String a="Seleccione tecnico secundario";
 
                 getProximaCita();
                     getOrdenes();
+                getListOrd();
 
 
             }
@@ -576,10 +578,12 @@ String a="Seleccione tecnico secundario";
                 while (itdata.hasNext()){
                     List<GetSP_StatusAparatosListResult> dat = itdata.next();
                     String datos[] = new String[dat.size()];
+                    datos[-1] = "Seleccione";
                     for(int i=0; i< dat.size(); i++){
                         Log.d("responseStatus", dat.get(i).Concepto);
                         datos[i] = dat.get(i).getConcepto();
                     }
+
                     ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, datos);
                     CambioAparato.estado.setAdapter(adapter);
                 }
