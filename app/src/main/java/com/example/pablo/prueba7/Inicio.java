@@ -99,6 +99,7 @@ public class Inicio extends AppCompatActivity
         } else if (id == R.id.Ordenes) {
             Intent intent1 = new Intent(Inicio.this, Orden.class);
             startActivity(intent1);
+            request.getListOrd();
             finish();
         } else if (id == R.id.Reportes) {
             Intent intent1 = new Intent(Inicio.this, Reportes.class);
